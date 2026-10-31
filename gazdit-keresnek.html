@@ -6,90 +6,73 @@
   <title>Gazdit kereső kutyák - Rénó Kutyaotthon</title>
   <meta name="description" content="Ismerd meg a Rénó Kutyaotthonban örökbefogadható kutyusokat." />
   <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    header {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: #4a4543;
-      z-index: 10;
-    }
-    .logo {
-      color: #ffffff;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    nav a:hover, nav a.active {
-      text-decoration: underline;
-    }
-    .sep {
-      color: rgba(255, 255, 255, 0.6);
-      margin: 0 8px;
-      font-size: 0.85rem;
-    }
-  </style>
 </head>
 <body class="bg-[#faf7f2] text-stone-900 flex flex-col min-h-screen">
 
-  <header>
-    <a href="index.html" class="logo hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
-    <nav>
-      <a href="index.html">Kezdőlap</a>
-      <span class="sep">/</span>
-      <a href="gazdit-keresnek.html" class="active">Gazdit keresnek</a>
-      <span class="sep">/</span>
-      <a href="hogyan-segithetsz.html">Hogyan segíthetsz?</a>
-      <span class="sep">/</span>
-      <a href="kapcsolat.html">Kapcsolat & Örökbefogadás</a>
+  <!-- Reszponzív Fejléc -->
+  <header class="relative w-full flex justify-between items-center px-4 sm:px-12 py-4 bg-[#4a4543] z-50">
+    <a href="index.html" class="text-white text-xl sm:text-2xl font-bold hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
+    
+    <nav class="hidden lg:flex items-center space-x-2">
+      <a href="index.html" class="text-white text-sm font-medium hover:underline">Kezdőlap</a>
+      <span class="text-white/60">/</span>
+      <a href="gazdit-keresnek.html" class="text-white text-sm font-medium hover:underline active">Gazdit keresnek</a>
+      <span class="text-white/60">/</span>
+      <a href="hogyan-segithetsz.html" class="text-white text-sm font-medium hover:underline">Hogyan segíthetsz?</a>
+      <span class="text-white/60">/</span>
+      <a href="kapcsolat.html" class="text-white text-sm font-medium hover:underline">Kapcsolat és Örökbefogadás</a>
     </nav>
+
+    <button onclick="toggleMobileMenu()" class="lg:hidden text-white text-2xl focus:outline-none p-2">
+      <i class="fa-solid fa-bars" id="menu-icon"></i>
+    </button>
+
+    <div id="mobile-menu" class="absolute top-full left-0 w-full bg-[#4a4543] border-t border-stone-600 shadow-xl hidden flex-col px-6 py-5 space-y-4 lg:hidden">
+      <a href="index.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Kezdőlap</a>
+      <a href="gazdit-keresnek.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Gazdit keresnek</a>
+      <a href="hogyan-segithetsz.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Hogyan segíthetsz?</a>
+      <a href="kapcsolat.html" class="text-white text-base font-medium py-1">Kapcsolat és Örökbefogadás</a>
+    </div>
   </header>
 
   <!-- ==================== FŐ TARTALOM ==================== -->
-  <main class="flex-grow pt-8 sm:pt-12">
+  <main class="flex-grow pt-6 sm:pt-12">
     
     <!-- Címsor -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-8 pb-12 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fbeee8] border border-[#f5d5c5] text-[#c85a32] text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
+    <section class="max-w-5xl mx-auto px-4 sm:px-8 pb-8 sm:pb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fbeee8] border border-[#f5d5c5] text-[#c85a32] text-xs font-bold uppercase tracking-wider mb-3 shadow-2xs">
         <span>🐾</span> Várják szerető gazdájukat
       </div>
-      <h1 class="text-3xl sm:text-5xl font-bold text-stone-900 tracking-tight mb-4 font-editorial">
+      <h1 class="text-2xl sm:text-5xl font-bold text-stone-900 tracking-tight mb-3 font-editorial">
         Gazdit kereső kutyáink
       </h1>
-      <p class="text-sm sm:text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-xs sm:text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
         Minden nálunk élő kutya oltva, chipezve, ivartalanítva és gondos állatorvosi vizsgálat után, csalódásmentes szeretettel várja az igazit.
       </p>
     </section>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-8 pb-16">
+    <div class="max-w-6xl mx-auto px-3 sm:px-8 pb-16">
       
-      <!-- Szűrősáv -->
-      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-[#eedfcc] mb-10 shadow-xs">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 items-center">
+      <!-- Szűrősáv (Mobilon 2 oszlopos, kompaktabb elrendezés) -->
+      <div class="bg-white rounded-2xl p-3 sm:p-5 border border-[#eedfcc] mb-8 shadow-xs">
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 sm:gap-3 items-center">
           
-          <!-- Keresőmező -->
-          <div class="lg:col-span-2 relative">
+          <!-- Keresőmező (mobilon teljes szélesség) -->
+          <div class="col-span-2 lg:col-span-2 relative">
             <input 
               id="gallery-search"
               type="text" 
               placeholder="Keresés névre..." 
-              class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all placeholder:text-stone-400"
+              class="w-full px-3.5 py-2 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all placeholder:text-stone-400"
             />
           </div>
 
           <!-- Méret -->
           <div>
-            <select id="gallery-size" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+            <select id="gallery-size" class="w-full px-2.5 py-2 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
               <option value="all">Minden méret</option>
               <option value="kicsi">Kistestű</option>
               <option value="kozepes">Közepes testű</option>
@@ -99,7 +82,7 @@
 
           <!-- Kor -->
           <div>
-            <select id="gallery-age" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+            <select id="gallery-age" class="w-full px-2.5 py-2 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
               <option value="all">Minden életkor</option>
               <option value="kolyok">Kölyök</option>
               <option value="fiatal">Fiatal</option>
@@ -109,7 +92,7 @@
 
           <!-- Nem -->
           <div>
-            <select id="gallery-gender" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+            <select id="gallery-gender" class="w-full px-2.5 py-2 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
               <option value="all">Mindkét nem</option>
               <option value="kan">Kan</option>
               <option value="szuka">Szuka</option>
@@ -118,7 +101,7 @@
 
           <!-- Tartás -->
           <div>
-            <select id="gallery-housing" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+            <select id="gallery-housing" class="w-full px-2.5 py-2 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
               <option value="all">Bármilyen tartás</option>
               <option value="bent">Bent</option>
               <option value="kint">Kint</option>
@@ -136,8 +119,8 @@
         </div>
       </div>
 
-      <!-- KUTYA KÁRTYÁK RÁCS -->
-      <div id="dogs-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- KUTYA KÁRTYÁK RÁCS (Mobilon 2 oszlopos!) -->
+      <div id="dogs-gallery-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
         <!-- JS tölti be dinamikusan -->
       </div>
 
@@ -155,6 +138,22 @@
 
   <script src="js/app.js"></script>
   <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+    }
+
     let galleryFilters = {
       search: "",
       size: "all",
@@ -220,9 +219,6 @@
       refreshGalleryView();
     }
 
-    // ==========================================
-    // KÁRTYA SABLON
-    // ==========================================
     function createDogCardHTML(dog) {
       if (cardImageIndexes[dog.id] === undefined) {
         cardImageIndexes[dog.id] = 0;
@@ -233,12 +229,8 @@
 
       const hasVirtual = dog.virtualOwner && dog.virtualOwner.trim() !== "";
       const virtualSubtextHTML = hasVirtual 
-        ? `<span class="text-[11px] text-emerald-700 font-medium flex items-center gap-1 mt-1"><span>🐾</span> Virtuális gazdi: ${dog.virtualOwner}</span>`
-        : `<span class="text-[11px] text-[#c85a32] font-medium flex items-center gap-1 mt-1"><span>⭐</span> Virtuális gazdit keres</span>`;
-
-      const traitsText = dog.tags && dog.tags.length > 0 
-        ? dog.tags.slice(0, 2).join(" • ") 
-        : "";
+        ? `<span class="text-[10px] sm:text-[11px] text-emerald-700 font-medium flex items-center gap-1 mt-1 truncate"><span>🐾</span> Virtuális gazdi: ${dog.virtualOwner}</span>`
+        : `<span class="text-[10px] sm:text-[11px] text-[#c85a32] font-medium flex items-center gap-1 mt-1"><span>⭐</span> Virtuális gazdit keres</span>`;
 
       return `
         <div onclick="openDogModal('${dog.id}')" class="bg-white rounded-2xl overflow-hidden border border-[#eedfcc] shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group">
@@ -246,33 +238,32 @@
             <img src="${currentImage}" alt="${dog.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
             
             ${totalImages > 1 ? `
-              <button onclick="event.stopPropagation(); changeCardImage('${dog.id}', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-stone-800 flex items-center justify-center font-bold shadow-md transition-all opacity-80 hover:opacity-100">
+              <button onclick="event.stopPropagation(); changeCardImage('${dog.id}', -1)" class="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/80 hover:bg-white text-stone-800 flex items-center justify-center font-bold shadow-md transition-all text-xs">
                 ❮
               </button>
-              <button onclick="event.stopPropagation(); changeCardImage('${dog.id}', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-stone-800 flex items-center justify-center font-bold shadow-md transition-all opacity-80 hover:opacity-100">
+              <button onclick="event.stopPropagation(); changeCardImage('${dog.id}', 1)" class="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/80 hover:bg-white text-stone-800 flex items-center justify-center font-bold shadow-md transition-all text-xs">
                 ❯
               </button>
             ` : ''}
           </div>
           
-          <div class="p-4 flex items-center justify-between">
+          <div class="p-3 sm:p-4 flex items-center justify-between">
             <div>
-              <h3 class="font-editorial text-xl font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors leading-snug mb-1">
+              <h3 class="font-editorial text-base sm:text-xl font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors leading-snug mb-1">
                 ${dog.name}
               </h3>
-              <div class="flex items-center gap-1.5 mb-1">
-                <span class="text-[11px] font-semibold text-[#c85a32] bg-[#fbeee8] px-2 py-0.5 rounded uppercase">
+              <div class="flex flex-wrap items-center gap-1 mb-1">
+                <span class="text-[10px] sm:text-[11px] font-semibold text-[#c85a32] bg-[#fbeee8] px-1.5 sm:px-2 py-0.5 rounded uppercase">
                   ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}
                 </span>
-                <span class="text-[11px] font-semibold text-[#c85a32] bg-[#fbeee8] px-2 py-0.5 rounded uppercase">
+                <span class="text-[10px] sm:text-[11px] font-semibold text-[#c85a32] bg-[#fbeee8] px-1.5 sm:px-2 py-0.5 rounded uppercase">
                   ${dog.ageText}
                 </span>
               </div>
-              <p class="text-xs text-stone-500 font-medium capitalize">${traitsText}</p>
               ${virtualSubtextHTML}
             </div>
 
-            <span class="w-9 h-9 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold">
+            <span class="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold shrink-0 ml-1">
               →
             </span>
           </div>
@@ -280,9 +271,6 @@
       `;
     }
 
-    // ==========================================
-    // RÉSZLETES ADATLAP (MODAL)
-    // ==========================================
     function openDogModal(dogId) {
       const dog = DOGS_DATA.find(d => d.id === dogId);
       if (!dog) return;
@@ -291,7 +279,7 @@
       if (modal) modal.remove();
 
       const galleryHTML = dog.gallery.map(img => `
-        <img src="${img}" alt="${dog.name}" class="w-full h-16 sm:h-20 object-cover rounded-xl border border-[#eedfcc] cursor-pointer hover:opacity-90 hover:border-[#c85a32] transition-all" onclick="document.getElementById('modal-main-img').src='${img}'" />
+        <img src="${img}" alt="${dog.name}" class="w-full h-14 sm:h-20 object-cover rounded-xl border border-[#eedfcc] cursor-pointer hover:opacity-90 hover:border-[#c85a32] transition-all" onclick="document.getElementById('modal-main-img').src='${img}'" />
       `).join("");
 
       const hasVirtual = dog.virtualOwner && dog.virtualOwner.trim() !== "";
@@ -306,42 +294,33 @@
 
       modal = document.createElement("div");
       modal.id = "dog-detail-modal";
-      modal.className = "fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/70 backdrop-blur-xs overflow-y-auto";
+      modal.className = "fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-950/70 backdrop-blur-xs overflow-y-auto";
       modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.remove();
-        }
+        if (e.target === modal) modal.remove();
       });
 
       modal.innerHTML = `
-        <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl border border-[#eedfcc]">
-          <button onclick="document.getElementById('dog-detail-modal').remove()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 flex items-center justify-center font-bold text-sm z-10 transition-colors">
+        <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] overflow-y-auto p-4 sm:p-10 relative shadow-2xl border border-[#eedfcc]">
+          <button onclick="document.getElementById('dog-detail-modal').remove()" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 flex items-center justify-center font-bold text-sm z-10 transition-colors">
             ✕
           </button>
 
-          <!-- KÉTOSZLOPOS ELRENDEZÉS -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            
-            <!-- BAL OLDAL -->
-            <div class="lg:col-span-7 space-y-4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+            <div class="lg:col-span-7 space-y-3">
               <div class="w-full aspect-square bg-[#f5efe6] rounded-2xl overflow-hidden flex items-center justify-center border border-[#eedfcc] shadow-sm p-2">
                 <img id="modal-main-img" src="${dog.gallery[cardImageIndexes[dog.id] || 0]}" alt="${dog.name}" class="w-full h-full object-contain object-center rounded-xl" />
               </div>
-
-              <div class="grid grid-cols-4 gap-2.5">
+              <div class="grid grid-cols-4 gap-2">
                 ${galleryHTML}
               </div>
             </div>
 
-            <!-- JOBB OLDAL -->
-            <div class="lg:col-span-5 space-y-6">
-              
-              <div class="border-b border-stone-100 pb-5">
-                <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-stone-900 mb-2">${dog.name}</h2>
+            <div class="lg:col-span-5 space-y-4 sm:space-y-6">
+              <div class="border-b border-stone-100 pb-4">
+                <h2 class="font-editorial text-2xl sm:text-4xl font-bold text-stone-900 mb-1 sm:mb-2">${dog.name}</h2>
                 ${modalVirtualHTML}
               </div>
 
-              <!-- Nem, Életkor, Méret és Tartás 4 db kiemelt rubrikában -->
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-stone-700">
                 <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
                   <span class="text-[10px] text-stone-400 block uppercase font-bold">Nem</span>
@@ -365,18 +344,16 @@
                 <p>${dog.description}</p>
               </div>
 
-              <div class="flex flex-wrap gap-1.5 pt-2">
-                ${dog.tags.map(tag => `<span class="bg-[#faf7f2] border border-[#eedfcc] text-stone-700 text-xs px-3 py-1 rounded-full font-medium">#${tag}</span>`).join("")}
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${dog.tags.map(tag => `<span class="bg-[#faf7f2] border border-[#eedfcc] text-stone-700 text-xs px-2.5 py-1 rounded-full font-medium">#${tag}</span>`).join("")}
               </div>
 
-              <div class="pt-6 border-t border-stone-100 flex items-center gap-3">
+              <div class="pt-4 sm:pt-6 border-t border-stone-100 flex items-center gap-3">
                 <a href="kapcsolat.html?dog=${dog.id}" class="w-full py-3 bg-[#c85a32] hover:bg-[#b34823] text-white text-xs font-bold rounded-xl shadow-sm transition-colors text-center block">
                   Örökbefogadom ezt a kutyust
                 </a>
               </div>
-
             </div>
-
           </div>
         </div>
       `;

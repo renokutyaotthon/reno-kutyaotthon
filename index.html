@@ -9,35 +9,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    header {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: #4a4543;
-      z-index: 10;
-    }
-    .logo {
-      color: #ffffff;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    nav a:hover, nav a.active {
-      text-decoration: underline;
-    }
-    .sep {
-      color: rgba(255, 255, 255, 0.6);
-      margin: 0 8px;
-      font-size: 0.85rem;
-    }
     /* Kisebb, kompaktabb hero magasság */
     .hero {
       position: relative;
@@ -85,21 +56,36 @@
 </head>
 <body class="bg-[#faf7f2] text-stone-900 flex flex-col min-h-screen">
 
-  <!-- 1. Fejléc / Navigáció -->
-  <header>
-    <a href="index.html" class="logo hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
-    <nav>
-      <a href="index.html" class="active">Kezdőlap</a>
-      <span class="sep">/</span>
-      <a href="gazdit-keresnek.html">Gazdit keresnek</a>
-      <span class="sep">/</span>
-      <a href="hogyan-segithetsz.html">Hogyan segíthetsz?</a>
-      <span class="sep">/</span>
-      <a href="kapcsolat.html">Kapcsolat & Örökbefogadás</a>
+  <!-- 1. Fejléc / Navigáció (Reszponzív Hamburger menüvel) -->
+  <header class="relative w-full flex justify-between items-center px-4 sm:px-12 py-4 bg-[#4a4543] z-50">
+    <a href="index.html" class="text-white text-xl sm:text-2xl font-bold hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
+    
+    <!-- Asztali navigáció -->
+    <nav class="hidden lg:flex items-center space-x-2">
+      <a href="index.html" class="text-white text-sm font-medium hover:underline active">Kezdőlap</a>
+      <span class="text-white/60">/</span>
+      <a href="gazdit-keresnek.html" class="text-white text-sm font-medium hover:underline">Gazdit keresnek</a>
+      <span class="text-white/60">/</span>
+      <a href="hogyan-segithetsz.html" class="text-white text-sm font-medium hover:underline">Hogyan segíthetsz?</a>
+      <span class="text-white/60">/</span>
+      <a href="kapcsolat.html" class="text-white text-sm font-medium hover:underline">Kapcsolat és Örökbefogadás</a>
     </nav>
+
+    <!-- Mobil hamburger gomb -->
+    <button onclick="toggleMobileMenu()" class="lg:hidden text-white text-2xl focus:outline-none p-2">
+      <i class="fa-solid fa-bars" id="menu-icon"></i>
+    </button>
+
+    <!-- Mobil lenyíló menü -->
+    <div id="mobile-menu" class="absolute top-full left-0 w-full bg-[#4a4543] border-t border-stone-600 shadow-xl hidden flex-col px-6 py-5 space-y-4 lg:hidden">
+      <a href="index.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Kezdőlap</a>
+      <a href="gazdit-keresnek.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Gazdit keresnek</a>
+      <a href="hogyan-segithetsz.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Hogyan segíthetsz?</a>
+      <a href="kapcsolat.html" class="text-white text-base font-medium py-1">Kapcsolat és Örökbefogadás</a>
+    </div>
   </header>
 
-  <!-- 2. Hero szekció (Rövidebb kép, nagyobb szöveg) -->
+  <!-- 2. Hero szekció -->
   <section class="hero">
     <div class="hero-slider">
       <img src="images/KEZDOLAP/kutyi (3 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide active">
@@ -146,7 +132,7 @@
     </div>
   </section>
 
-  <!-- Örökbefogadható kutyusok előzetese sáv (3 nagyobb kutyus + 1 nagy gombkártya) -->
+  <!-- Örökbefogadható kutyusok előzetese sáv (Mobilon 2 oszlopos rács) -->
   <section class="py-12 bg-[#f5efe6]/50 border-y border-[#eedfcc]">
     <div class="container max-w-6xl mx-auto px-4 sm:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 text-center sm:text-left">
@@ -156,8 +142,8 @@
         </div>
       </div>
 
-      <!-- Kutyák grid (3 nagyobb kutyus + 1 nagy gombkártya = összesen 4 db kártya) -->
-      <div id="home-dogs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Kutyák grid (Mobilon 2 oszlop, tableten 2, asztali gépen 4 oszlop) -->
+      <div id="home-dogs-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         <!-- JS tölti be dinamikusan -->
       </div>
     </div>
@@ -202,9 +188,25 @@
     </div>
   </footer>
 
-  <!-- Script a hero sliderhez és a kutyusok betöltéséhez -->
   <script src="js/app.js"></script>
   <script>
+    // Mobil menü nyitó-záró függvény
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const icon = document.getElementById("menu-icon");
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+    }
+
     // Hero slider
     let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-slider .slide');
@@ -216,39 +218,37 @@
     }
     setInterval(nextSlide, 4000);
 
-    // Kezdőlap kutyus sáv betöltése (3 nagyobb kutyus + 4. helyen a nagyméretű gombkártya)
+    // Kezdőlap kutyus sáv betöltése
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.getElementById("home-dogs-grid");
       if (grid && typeof DOGS_DATA !== "undefined") {
-        const previewDogs = DOGS_DATA.slice(0, 3); // 3 kutyus lekérése
+        const previewDogs = DOGS_DATA.slice(0, 3);
         
-        // 3 nagyobb kutyus kártya generálása
         let html = previewDogs.map(dog => `
           <a href="gazdit-keresnek.html" class="bg-white rounded-2xl overflow-hidden border border-[#eedfcc] shadow-xs hover:shadow-md transition-all flex flex-col group">
             <div class="relative aspect-[4/5] bg-stone-100 overflow-hidden">
               <img src="${dog.gallery[0]}" alt="${dog.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <div class="p-4 flex items-center justify-between">
+            <div class="p-3 sm:p-4 flex items-center justify-between">
               <div>
-                <h3 class="font-editorial text-xl font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors">${dog.name}</h3>
-                <p class="text-xs text-stone-500 font-medium">${dog.ageText} • ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}</p>
+                <h3 class="font-editorial text-base sm:text-xl font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors leading-snug">${dog.name}</h3>
+                <p class="text-[11px] sm:text-xs text-stone-500 font-medium">${dog.ageText} • ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}</p>
               </div>
-              <span class="w-9 h-9 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold">
+              <span class="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold shrink-0 ml-1">
                 →
               </span>
             </div>
           </a>
         `).join("");
 
-        // A 4. helyre a nagyméretű, stílusos gombkártya kerül
         html += `
-          <a href="gazdit-keresnek.html" class="bg-[#fbeee8] hover:bg-[#f5d5c5] border border-[#f5d5c5] rounded-2xl p-8 flex flex-col items-center justify-center text-center transition-all group shadow-xs hover:shadow-md">
-            <div class="w-16 h-16 rounded-full bg-[#c85a32] text-white flex items-center justify-center text-2xl font-bold mb-4 group-hover:scale-110 transition-transform shadow-sm">
+          <a href="gazdit-keresnek.html" class="bg-[#fbeee8] hover:bg-[#f5d5c5] border border-[#f5d5c5] rounded-2xl p-4 sm:p-8 flex flex-col items-center justify-center text-center transition-all group shadow-xs hover:shadow-md">
+            <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-[#c85a32] text-white flex items-center justify-center text-lg sm:text-2xl font-bold mb-2 sm:mb-4 group-hover:scale-110 transition-transform shadow-sm">
               🐾
             </div>
-            <h3 class="font-editorial text-2xl font-bold text-[#c85a32] mb-2">Még sokan várnak rád!</h3>
-            <p class="text-sm text-stone-600 mb-6 leading-relaxed">Nézd meg az összes gazdira váró kutyusunkat a galériánkban.</p>
-            <span class="inline-flex items-center gap-2 px-6 py-3 bg-[#c85a32] text-white text-xs font-bold uppercase tracking-wider rounded-xl group-hover:bg-[#b34823] transition-colors shadow-sm">
+            <h3 class="font-editorial text-base sm:text-2xl font-bold text-[#c85a32] mb-1 sm:mb-2 leading-snug">Még sokan várnak rád!</h3>
+            <p class="text-[11px] sm:text-sm text-stone-600 mb-3 sm:mb-6 leading-tight hidden sm:block">Nézd meg az összes gazdira váró kutyusunkat a galériánkban.</p>
+            <span class="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 bg-[#c85a32] text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xl group-hover:bg-[#b34823] transition-colors shadow-sm">
               Összes megtekintése →
             </span>
           </a>
