@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gazdit kereső kutyák - Rénó Kutyaotthon</title>
+  <meta name="description" content="Ismerd meg a Rénó Kutyaotthonban örökbefogadható kutyusokat." />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    header {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #4a4543;
+      z-index: 10;
+    }
+    .logo {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    nav a:hover, nav a.active {
+      text-decoration: underline;
+    }
+    .sep {
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 8px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body class="bg-[#faf7f2] text-stone-900 flex flex-col min-h-screen">
+
+  <header>
+    <a href="index.html" class="logo hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
+    <nav>
+      <a href="index.html">Kezdőlap</a>
+      <span class="sep">/</span>
+      <a href="gazdit-keresnek.html" class="active">Gazdit keresnek</a>
+      <span class="sep">/</span>
+      <a href="hogyan-segithetsz.html">Hogyan segíthetsz?</a>
+      <span class="sep">/</span>
+      <a href="kapcsolat.html">Kapcsolat & Örökbefogadás</a>
+    </nav>
+  </header>
+
+  <!-- ==================== FŐ TARTALOM ==================== -->
+  <main class="flex-grow pt-8 sm:pt-12">
+    
+    <!-- Címsor -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-8 pb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fbeee8] border border-[#f5d5c5] text-[#c85a32] text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
+        <span>🐾</span> Várják szerető gazdájukat
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold text-stone-900 tracking-tight mb-4 font-editorial">
+        Gazdit kereső kutyáink
+      </h1>
+      <p class="text-sm sm:text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        Minden nálunk élő kutya oltva, chipezve, ivartalanítva és gondos állatorvosi vizsgálat után, csalódásmentes szeretettel várja az igazit.
+      </p>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 pb-16">
+      
+      <!-- Szűrősáv -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-[#eedfcc] mb-10 shadow-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 items-center">
+          
+          <!-- Keresőmező -->
+          <div class="lg:col-span-2 relative">
+            <input 
+              id="gallery-search"
+              type="text" 
+              placeholder="Keresés névre..." 
+              class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all placeholder:text-stone-400"
+            />
+          </div>
+
+          <!-- Méret -->
+          <div>
+            <select id="gallery-size" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+              <option value="all">Minden méret</option>
+              <option value="kicsi">Kistestű</option>
+              <option value="kozepes">Közepes testű</option>
+              <option value="nagy">Nagytestű</option>
+            </select>
+          </div>
+
+          <!-- Kor -->
+          <div>
+            <select id="gallery-age" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+              <option value="all">Minden életkor</option>
+              <option value="kolyok">Kölyök</option>
+              <option value="fiatal">Fiatal</option>
+              <option value="felnott">Felnőtt</option>
+            </select>
+          </div>
+
+          <!-- Nem -->
+          <div>
+            <select id="gallery-gender" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+              <option value="all">Mindkét nem</option>
+              <option value="kan">Kan</option>
+              <option value="szuka">Szuka</option>
+            </select>
+          </div>
+
+          <!-- Tartás -->
+          <div>
+            <select id="gallery-housing" class="w-full px-3 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
+              <option value="all">Bármilyen tartás</option>
+              <option value="bent">Bent</option>
+              <option value="kint">Kint</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Alsó számláló & szűrő törlés -->
+        <div class="flex items-center justify-between pt-3 mt-3 border-t border-[#eedfcc]/60 text-xs text-stone-500">
+          <span id="gallery-count" class="font-semibold text-stone-800">0 kutyus listázva</span>
+          <button onclick="resetGalleryFilters()" class="text-[#c85a32] hover:text-[#b34823] underline font-bold">
+            Szűrők visszaállítása
+          </button>
+        </div>
+      </div>
+
+      <!-- KUTYA KÁRTYÁK RÁCS -->
+      <div id="dogs-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- JS tölti be dinamikusan -->
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==================== LÁBLÉC ==================== -->
+  <footer>
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+      <p>&copy; 2026 Kutyamenhely | Minden jog fenntartva.</p>
+      <p class="webnode-credit">Az oldalt a Webnode működteti • Súgó</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    let galleryFilters = {
+      search: "",
+      size: "all",
+      age: "all",
+      gender: "all",
+      housing: "all"
+    };
+
+    function refreshGalleryView() {
+      const container = document.getElementById("dogs-gallery-grid");
+      const countEl = document.getElementById("gallery-count");
+      if (!container || typeof DOGS_DATA === "undefined") return;
+
+      const filtered = DOGS_DATA.filter((dog) => {
+        if (galleryFilters.search) {
+          const q = galleryFilters.search.toLowerCase();
+          const matchName = dog.name.toLowerCase().includes(q);
+          const matchTags = dog.tags.some(t => t.toLowerCase().includes(q));
+          if (!matchName && !matchTags) return false;
+        }
+        if (galleryFilters.size !== "all" && dog.size !== galleryFilters.size) return false;
+        if (galleryFilters.age !== "all" && dog.ageCategory !== galleryFilters.age) return false;
+        if (galleryFilters.gender !== "all" && dog.gender !== galleryFilters.gender) return false;
+        if (galleryFilters.housing !== "all") {
+          if (galleryFilters.housing === "bent" && dog.housing !== "bent" && dog.housing !== "mindketto") return false;
+          if (galleryFilters.housing === "kint" && dog.housing !== "kint" && dog.housing !== "mindketto") return false;
+        }
+        return true;
+      });
+
+      if (countEl) {
+        countEl.textContent = `${filtered.length} kutyus listázva`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center bg-white rounded-2xl border border-[#eedfcc] p-8">
+            <h3 class="text-base font-bold text-stone-900 mb-1">Nincs a szűrésnek megfelelő kutyus</h3>
+            <p class="text-xs text-stone-500 mb-4">Próbáld meg visszaállítani a szűrőket a teljes lista megtekintéséhez.</p>
+            <button onclick="resetGalleryFilters()" class="text-xs font-bold px-4 py-2 bg-[#c85a32] text-white rounded-xl">
+              Szűrők visszaállítása
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+    container.innerHTML = filtered.map(createDogCardHTML).join("");
+    }
+
+    function resetGalleryFilters() {
+      galleryFilters = { search: "", size: "all", age: "all", gender: "all", housing: "all" };
+      const s = document.getElementById("gallery-search");
+      const sz = document.getElementById("gallery-size");
+      const a = document.getElementById("gallery-age");
+      const g = document.getElementById("gallery-gender");
+      const h = document.getElementById("gallery-housing");
+      if (s) s.value = "";
+      if (sz) sz.value = "all";
+      if (a) a.value = "all";
+      if (g) g.value = "all";
+      if (h) h.value = "all";
+      refreshGalleryView();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const s = document.getElementById("gallery-search");
+      const sz = document.getElementById("gallery-size");
+      const a = document.getElementById("gallery-age");
+      const g = document.getElementById("gallery-gender");
+      const h = document.getElementById("gallery-housing");
+
+      if (s) s.addEventListener("input", (e) => { galleryFilters.search = e.target.value.trim(); refreshGalleryView(); });
+      if (sz) sz.addEventListener("change", (e) => { galleryFilters.size = e.target.value; refreshGalleryView(); });
+      if (a) a.addEventListener("change", (e) => { galleryFilters.age = e.target.value; refreshGalleryView(); });
+      if (g) g.addEventListener("change", (e) => { galleryFilters.gender = e.target.value; refreshGalleryView(); });
+      if (h) h.addEventListener("change", (e) => { galleryFilters.housing = e.target.value; refreshGalleryView(); });
+
+      refreshGalleryView();
+    });
+  </script>
+</body>
+</html>

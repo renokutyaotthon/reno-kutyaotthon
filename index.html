@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rénó Kutyaotthon | Kezdőlap</title>
+  <!-- Font Awesome ikonok -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    header {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #4a4543;
+      z-index: 10;
+    }
+    .logo {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    nav a:hover, nav a.active {
+      text-decoration: underline;
+    }
+    .sep {
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 8px;
+      font-size: 0.85rem;
+    }
+    /* Kisebb, kompaktabb hero magasság */
+    .hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      max-height: 520px;
+      overflow: hidden;
+    }
+    .hero-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-slider .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .hero-slider .slide.active {
+      opacity: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body class="bg-[#faf7f2] text-stone-900 flex flex-col min-h-screen">
+
+  <!-- 1. Fejléc / Navigáció -->
+  <header>
+    <a href="index.html" class="logo hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
+    <nav>
+      <a href="index.html" class="active">Kezdőlap</a>
+      <span class="sep">/</span>
+      <a href="gazdit-keresnek.html">Gazdit keresnek</a>
+      <span class="sep">/</span>
+      <a href="hogyan-segithetsz.html">Hogyan segíthetsz?</a>
+      <span class="sep">/</span>
+      <a href="kapcsolat.html">Kapcsolat & Örökbefogadás</a>
+    </nav>
+  </header>
+
+  <!-- 2. Hero szekció (Rövidebb kép, nagyobb szöveg) -->
+  <section class="hero">
+    <div class="hero-slider">
+      <img src="images/KEZDOLAP/kutyi (3 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide active">
+      <img src="images/KEZDOLAP/kutyi (51 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide">
+      <img src="images/KEZDOLAP/kutyi (120 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide">
+      <img src="images/KEZDOLAP/kutyi (128 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide">
+      <img src="images/KEZDOLAP/kutyi (152 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide">
+      <img src="images/KEZDOLAP/kutyi (178 of 186).jpg" alt="Rénó Kutyaotthon kutyus" class="slide">
+    </div>
+
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-container">
+      <div class="max-w-2xl text-white space-y-4">
+        <h1 class="font-editorial text-4xl sm:text-6xl font-bold leading-tight drop-shadow-md">
+          Fogadj örökbe te is egy hűséges barátot!
+        </h1>
+        <p class="text-base sm:text-lg text-stone-100 drop-shadow">
+          Ismerd meg védenceinket, és találj rá a tökéletes négylábú társra a Rénó Kutyaotthonban!
+        </p>
+        <div class="pt-2">
+          <a href="gazdit-keresnek.html" class="inline-block px-7 py-3.5 bg-[#c85a32] hover:bg-[#b34823] text-white font-bold rounded-xl transition-colors shadow-lg text-base">
+            Gazdit keresnek
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Üdvözlő és Célok szekció -->
+  <section class="welcome-section py-16 px-4">
+    <div class="container max-w-3xl mx-auto text-center">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#c85a32] mb-2 block">Rólunk</span>
+      <h2 class="text-3xl sm:text-5xl font-bold text-stone-900 font-editorial tracking-tight mb-6">Üdvözlünk a Rénó Kutyaotthonban!</h2>
+      
+      <p class="text-base sm:text-lg text-stone-600 leading-relaxed mb-8">
+        Alapítványunk Ladánybenén és a környező tanyavilágban, valamint Pest és Bács-Kiskun megye területén mentett, cserbenhagyott állatoknak nyújt biztonságos menedéket. Célunk, hogy minden védencünknek szerető otthont találjunk, és összefogással biztosítsuk az állandó lakóink méltó, szeretetteljes életét és orvosi ellátását.
+      </p>
+      
+      <div class="bg-[#f5efe6] border border-[#eedfcc] p-8 sm:p-10 rounded-3xl text-center mb-16 shadow-xs">
+        <p class="font-editorial italic text-stone-800 text-lg sm:text-xl mb-3">"Egy nemzet nagysága és erkölcsi fejlettsége híven tükröződik abban, ahogyan az állatokkal bánik."</p>
+        <span class="text-xs font-bold text-[#c85a32] uppercase tracking-wider">– Mahatma Gandhi</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Örökbefogadható kutyusok előzetese sáv -->
+  <section class="py-12 bg-[#f5efe6]/50 border-y border-[#eedfcc]">
+    <div class="container max-w-6xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 text-center sm:text-left">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#c85a32] mb-1 block">Ízelítő lakóinkból</span>
+          <h2 class="font-editorial text-2xl sm:text-3xl font-bold text-stone-900">Várják a gazdijukat</h2>
+        </div>
+        <a href="gazdit-keresnek.html" class="text-sm font-bold text-[#c85a32] hover:underline flex items-center gap-1">
+          Összes kutyus megtekintése →
+        </a>
+      </div>
+
+      <!-- Kutyák grid -->
+      <div id="home-dogs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- JS tölti be dinamikusan a kutyusokat -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Munkánk számokban szekció -->
+  <section class="stats-section relative py-16">
+    <div class="stats-overlay"></div>
+    <div class="container max-w-5xl mx-auto px-4 relative z-10 text-white">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold font-editorial mb-3">Munkánk számokban</h2>
+        <p class="text-stone-300 text-sm max-w-xl mx-auto">Minden egyes szám mögött egy megmentett élet, egy új esély és a támogatóink összefogása áll.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div class="bg-white/10 backdrop-blur-xs border border-white/20 p-6 rounded-2xl">
+          <div class="text-[#c85a32] text-2xl mb-2"><i class="fa-regular fa-heart"></i></div>
+          <div class="text-xs uppercase tracking-wider text-stone-300 mb-1">Gazdira váró kutyus</div>
+          <div class="text-3xl font-bold font-editorial">67</div>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-xs border border-white/20 p-6 rounded-2xl">
+          <div class="text-[#c85a32] text-2xl mb-2"><i class="fa-regular fa-user"></i></div>
+          <div class="text-xs uppercase tracking-wider text-stone-300 mb-1">Sikeres örökbefogadás</div>
+          <div class="text-3xl font-bold font-editorial">200+</div>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-xs border border-white/20 p-6 rounded-2xl">
+          <div class="text-[#c85a32] text-2xl mb-2"><i class="fa-solid fa-house"></i></div>
+          <div class="text-xs uppercase tracking-wider text-stone-300 mb-1">Állandó lakóink</div>
+          <div class="text-3xl font-bold font-editorial">15</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Lábléc -->
+  <footer>
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+      <p>&copy; 2026 Kutyamenhely | Minden jog fenntartva.</p>
+      <p class="webnode-credit">Az oldalt a Webnode működteti • Súgó</p>
+    </div>
+  </footer>
+
+  <!-- Script a hero sliderhez és a kutyusok betöltéséhez -->
+  <script src="js/app.js"></script>
+  <script>
+    // Hero slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 4000);
+
+    // Kezdőlap kutyus sáv betöltése (az első 4 kutyus megjelenítése)
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("home-dogs-grid");
+      if (grid && typeof DOGS_DATA !== "undefined") {
+        const previewDogs = DOGS_DATA.slice(0, 4);
+        grid.innerHTML = previewDogs.map(dog => `
+          <a href="gazdit-keresnek.html" class="bg-white rounded-2xl overflow-hidden border border-[#eedfcc] shadow-xs hover:shadow-md transition-all flex flex-col group">
+            <div class="relative aspect-[4/5] bg-stone-100 overflow-hidden">
+              <img src="${dog.gallery[0]}" alt="${dog.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <h3 class="font-editorial text-lg font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors">${dog.name}</h3>
+                <p class="text-xs text-stone-500 font-medium">${dog.ageText} • ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}</p>
+              </div>
+              <span class="w-8 h-8 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold">
+                →
+              </span>
+            </div>
+          </a>
+        `).join("");
+      }
+    });
+  </script>
+
+</body>
+</html>
