@@ -6,6 +6,8 @@
   <title>Kapcsolat & Látogatás - Rénó Kutyaotthon</title>
   <meta name="description" content="Gyere el és ismerd meg kis kedvenceinket! 6045 Ladánybene, Országúti dűlő 68. Telefon: +36 70 424 9344." />
   <link rel="icon" type="image/png" href="images/logo.png" />
+  <!-- Font Awesome ikonok a modern, egységes megjelenéshez -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
@@ -73,12 +75,15 @@
     <!-- FŐ TARTALOM KONTÉNER -->
     <div class="max-w-6xl mx-auto px-4 sm:px-8 pb-16 pt-2 space-y-12">
       
-      <!-- FELSŐ SZEKCIÓ: Bal oldalon a kép, jobb oldalon az üzenetküldő űrlap -->
+      <!-- FELSŐ SZEKCIÓ: Bal oldalon a kép (alapértelmezetten a kutyi (101 of 186).jpg), jobb oldalon az űrlap -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
-        <!-- BAL OLDAL: Kép -->
-        <div class="lg:col-span-5 rounded-3xl overflow-hidden aspect-[4/5] bg-[#f5efe6] border border-[#eedfcc] shadow-sm flex items-center justify-center">
-          <img src="images/KAPCSOLAT/kutyi (44 of 186).jpg" alt="Rénó Kutyaotthon lakója" class="w-full h-full object-cover object-center" />
+        <!-- BAL OLDAL: Dinamikus Kép -->
+        <div class="lg:col-span-5 rounded-3xl overflow-hidden aspect-[4/5] bg-[#f5efe6] border border-[#eedfcc] shadow-sm flex flex-col items-center justify-center relative group">
+          <img id="contact-dog-img" src="images/KAPCSOLAT/kutyi (101 of 186).jpg" alt="Rénó Kutyaotthon lakója" class="w-full h-full object-cover object-center" />
+          <div id="contact-dog-badge" class="absolute bottom-4 left-4 right-4 bg-stone-900/80 backdrop-blur-xs text-white p-3 rounded-2xl text-xs font-medium hidden">
+            <span>🐾 Örökbefogadni kívánt kutyus: </span><strong id="contact-dog-badge-name" class="text-[#c85a32] font-bold"></strong>
+          </div>
         </div>
 
         <!-- JOBB OLDAL: Üzenetküldő űrlap -->
@@ -177,15 +182,15 @@
       <!-- ALSÓ SZEKCIÓ: Elérhetőség és Nyitvatartás -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <!-- Elérhetőségek doboz -->
+        <!-- Elérhetőségek doboz (Modern, egységes ikonokkal) -->
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-[#eedfcc] space-y-4 shadow-xs">
           <span class="text-xs font-bold text-[#c85a32] uppercase tracking-wider block">Elérhetőségeink</span>
           <h3 class="font-editorial text-2xl font-bold text-stone-950">Hol találsz meg minket?</h3>
           
           <div class="space-y-4 text-sm text-stone-700 pt-2">
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-[#fbeee8] text-[#c85a32] flex items-center justify-center shrink-0 mt-0.5">
-                📍
+              <div class="w-9 h-9 rounded-xl bg-[#fbeee8] text-[#c85a32] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                <i class="fa-solid fa-location-dot"></i>
               </div>
               <div>
                 <strong class="text-stone-900 block">Címünk:</strong>
@@ -198,8 +203,8 @@
             </div>
 
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-[#fbeee8] text-[#c85a32] flex items-center justify-center shrink-0 mt-0.5">
-                📞
+              <div class="w-9 h-9 rounded-xl bg-[#fbeee8] text-[#c85a32] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                <i class="fa-solid fa-phone"></i>
               </div>
               <div>
                 <strong class="text-stone-900 block">Telefonszám:</strong>
@@ -211,8 +216,8 @@
             </div>
 
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-[#fbeee8] text-[#c85a32] flex items-center justify-center shrink-0 mt-0.5">
-                ✉️
+              <div class="w-9 h-9 rounded-xl bg-[#fbeee8] text-[#c85a32] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                <i class="fa-solid fa-envelope"></i>
               </div>
               <div>
                 <strong class="text-stone-900 block">E-mail címünk:</strong>
@@ -269,8 +274,24 @@
       if (dogId && typeof DOGS_DATA !== "undefined") {
         const dog = DOGS_DATA.find(d => d.id === dogId);
         if (dog) {
+          // Beállítjuk a nevét az input mezőbe
           const dogInput = document.getElementById("contact-dog-name");
           if (dogInput) dogInput.value = dog.name;
+
+          // Dinamikusan lecseréljük a képet a kiválasztott kutyus első képére!
+          const dogImg = document.getElementById("contact-dog-img");
+          if (dogImg && dog.gallery && dog.gallery.length > 0) {
+            dogImg.src = dog.gallery[0];
+            dogImg.alt = `${dog.name} kutyus`;
+          }
+
+          // Megjelenítünk egy kis stílusos feliratot is a képen, hogy ki ő
+          const dogBadge = document.getElementById("contact-dog-badge");
+          const dogBadgeName = document.getElementById("contact-dog-badge-name");
+          if (dogBadge && dogBadgeName) {
+            dogBadgeName.textContent = dog.name;
+            dogBadge.classList.remove("hidden");
+          }
         }
       }
 

@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <!-- Örökbefogadható kutyusok előzetese sáv -->
+  <!-- Örökbefogadható kutyusok előzetese sáv (3 nagyobb kutyus + 1 nagy gombkártya) -->
   <section class="py-12 bg-[#f5efe6]/50 border-y border-[#eedfcc]">
     <div class="container max-w-6xl mx-auto px-4 sm:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 text-center sm:text-left">
@@ -154,14 +154,11 @@
           <span class="text-xs font-bold uppercase tracking-wider text-[#c85a32] mb-1 block">Ízelítő lakóinkból</span>
           <h2 class="font-editorial text-2xl sm:text-3xl font-bold text-stone-900">Várják a gazdijukat</h2>
         </div>
-        <a href="gazdit-keresnek.html" class="text-sm font-bold text-[#c85a32] hover:underline flex items-center gap-1">
-          Összes kutyus megtekintése →
-        </a>
       </div>
 
-      <!-- Kutyák grid -->
-      <div id="home-dogs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- JS tölti be dinamikusan a kutyusokat -->
+      <!-- Kutyák grid (3 nagyobb kutyus + 1 nagy gombkártya = összesen 4 db kártya) -->
+      <div id="home-dogs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- JS tölti be dinamikusan -->
       </div>
     </div>
   </section>
@@ -219,27 +216,45 @@
     }
     setInterval(nextSlide, 4000);
 
-    // Kezdőlap kutyus sáv betöltése (az első 4 kutyus megjelenítése)
+    // Kezdőlap kutyus sáv betöltése (3 nagyobb kutyus + 4. helyen a nagyméretű gombkártya)
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.getElementById("home-dogs-grid");
       if (grid && typeof DOGS_DATA !== "undefined") {
-        const previewDogs = DOGS_DATA.slice(0, 4);
-        grid.innerHTML = previewDogs.map(dog => `
+        const previewDogs = DOGS_DATA.slice(0, 3); // 3 kutyus lekérése
+        
+        // 3 nagyobb kutyus kártya generálása
+        let html = previewDogs.map(dog => `
           <a href="gazdit-keresnek.html" class="bg-white rounded-2xl overflow-hidden border border-[#eedfcc] shadow-xs hover:shadow-md transition-all flex flex-col group">
             <div class="relative aspect-[4/5] bg-stone-100 overflow-hidden">
               <img src="${dog.gallery[0]}" alt="${dog.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div class="p-4 flex items-center justify-between">
               <div>
-                <h3 class="font-editorial text-lg font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors">${dog.name}</h3>
+                <h3 class="font-editorial text-xl font-bold text-stone-900 group-hover:text-[#c85a32] transition-colors">${dog.name}</h3>
                 <p class="text-xs text-stone-500 font-medium">${dog.ageText} • ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}</p>
               </div>
-              <span class="w-8 h-8 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold">
+              <span class="w-9 h-9 rounded-xl bg-[#faf7f2] group-hover:bg-[#c85a32] group-hover:text-white text-stone-700 flex items-center justify-center transition-colors text-xs font-bold">
                 →
               </span>
             </div>
           </a>
         `).join("");
+
+        // A 4. helyre a nagyméretű, stílusos gombkártya kerül
+        html += `
+          <a href="gazdit-keresnek.html" class="bg-[#fbeee8] hover:bg-[#f5d5c5] border border-[#f5d5c5] rounded-2xl p-8 flex flex-col items-center justify-center text-center transition-all group shadow-xs hover:shadow-md">
+            <div class="w-16 h-16 rounded-full bg-[#c85a32] text-white flex items-center justify-center text-2xl font-bold mb-4 group-hover:scale-110 transition-transform shadow-sm">
+              🐾
+            </div>
+            <h3 class="font-editorial text-2xl font-bold text-[#c85a32] mb-2">Még sokan várnak rád!</h3>
+            <p class="text-sm text-stone-600 mb-6 leading-relaxed">Nézd meg az összes gazdira váró kutyusunkat a galériánkban.</p>
+            <span class="inline-flex items-center gap-2 px-6 py-3 bg-[#c85a32] text-white text-xs font-bold uppercase tracking-wider rounded-xl group-hover:bg-[#b34823] transition-colors shadow-sm">
+              Összes megtekintése →
+            </span>
+          </a>
+        `;
+
+        grid.innerHTML = html;
       }
     });
   </script>
