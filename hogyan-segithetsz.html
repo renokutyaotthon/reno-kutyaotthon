@@ -128,24 +128,14 @@
           <p class="text-base text-stone-700 leading-relaxed">
             Akár egy tál étel árával is hozzájárulhatsz a mentett kutyusok napi ellátásához és gyógykezeléséhez.
           </p>
-          
-          <!-- Banki adatok + Lekódolt QR-kód doboz -->
-          <div class="bg-[#f5efe6] p-5 rounded-xl border border-[#eedfcc] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="space-y-2 text-base text-stone-800 w-full">
-              <p><strong>Név:</strong> Rénó Kutyaotthon Alapítvány</p>
-              <p><strong>Bank:</strong> K&H Bank</p>
-              <div class="flex items-center justify-between">
-                <span><strong>Számlaszám:</strong> 10402599-50526751-75871018</span>
-                <button onclick="copyToClipboard('104025995052675175871018', 'Számlaszám kimásolva!')" class="text-[#c85a32] hover:underline font-bold text-base ml-2">[Másolás]</button>
-              </div>
-              <p><strong>Közlemény:</strong> Adomány</p>
+          <div class="space-y-2 text-base text-stone-800 bg-[#f5efe6] p-5 rounded-xl border border-[#eedfcc]">
+            <p><strong>Név:</strong> Rénó Kutyaotthon Alapítvány</p>
+            <p><strong>Bank:</strong> K&H Bank</p>
+            <div class="flex items-center justify-between">
+              <span><strong>Számlaszám:</strong> 10402599-50526751-75871018</span>
+              <button onclick="copyToClipboard('104025995052675175871018', 'Számlaszám kimásolva!')" class="text-[#c85a32] hover:underline font-bold text-base">[Másolás]</button>
             </div>
-            
-            <!-- Automatikusan lekódolt QR Kód tartódoboza -->
-            <div class="shrink-0 text-center bg-white p-2.5 rounded-xl border border-[#eedfcc] shadow-2xs flex flex-col items-center">
-              <div id="mnb-qrcode"></div>
-              <span class="text-[10px] text-stone-500 font-medium block mt-1">Olvasd be!</span>
-            </div>
+            <p><strong>Közlemény:</strong> Adomány</p>
           </div>
         </div>
       </section>
@@ -196,8 +186,6 @@
     </div>
   </footer>
 
-  <!-- QR-kód generáló külső könyvtár -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="js/app.js"></script>
   <script>
     // Mobil menü nyitó-záró függvény
@@ -225,20 +213,7 @@
         console.error('Hiba a másolás során: ', err);
       });
     }
-
-    // Automatikus MNB-szabványos QR-kód kirajzolása betöltődés után
-    document.addEventListener("DOMContentLoaded", () => {
-      const mnbQrString = "HCDV01\nHUF\n\nRénó Kutyaotthon Alapítvány\nHU83104025995052675175871018\n\n\nAdomany\n";
-      
-      new QRCode(document.getElementById("mnb-qrcode"), {
-        text: mnbQrString,
-        width: 104,
-        height: 104,
-        colorDark : "#1c1917",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.M
-      });
-    });
   </script>
 </body>
 </html>
+```[cite: 8]
