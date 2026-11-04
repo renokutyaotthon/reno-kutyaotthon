@@ -69,12 +69,8 @@
             <p class="text-sm text-stone-500 mt-1">Örökbefogadással, virtuális gazdisággal vagy önkéntességgel kapcsolatban töltsd ki az alábbi űrlapot!</p>
           </div>
 
-          <!-- 
-            Megjegyzés: Ha azt szeretnéd, hogy a kitöltött űrlap e-mailben is megérkezzen ide: menhely.adrienn@gmail.com, 
-            regisztrálhatsz egy ingyenes fiókot a https://formspree.io oldalon, és az action mezőbe beillesztheted a kapott URL-t 
-            (pl. action="https://formspree.io/f/az_te_kodod")
-          -->
-          <form id="contact-page-form" action="https://formspree.io/f/menhely.adrienn@gmail.com" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4 pt-2">
+          <!-- Formspree kapcsolat beállítva -->
+          <form id="contact-page-form" action="https://formspree.io/f/xzeeoadq" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4 pt-2">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -298,20 +294,11 @@
     });
 
     function handleContactSubmit(e) {
-      // Ha külső küldő szolgáltatást (pl. Formspree) használsz, ezt az e.preventDefault()-et kiveheted, 
-      // hogy natívan továbbítsa a POST kérést. Addig is megerősítő üzenetet ad:
-      e.preventDefault();
+      // Formspree natív POST beküldés engedélyezése:
       const form = document.getElementById("contact-page-form");
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = "Küldés folyamatban...";
-
-      setTimeout(() => {
-        form.reset();
-        btn.disabled = false;
-        btn.textContent = "Üzenet elküldése";
-        alert("Köszönjük megkeresésedet! Az üzenetet sikeresen elküldtuk.");
-      }, 700);
     }
   </script>
 </body>
