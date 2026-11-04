@@ -4,32 +4,13 @@
 
 const DOGS_DATA = [
   {
-    id: "k1",
-    name: "Borisz",
-    gender: "kan",
-    size: "nagy",
-    ageCategory: "fiatal",
-    ageText: "2 éves",
-    housing: "mindketto",
-    virtualOwner: "Kovács Anna",
-    gallery: [
-      "images/GAZDIT KERESNEK/K1 (1).jpg",
-      "images/GAZDIT KERESNEK/K1 (2).jpg",
-      "images/GAZDIT KERESNEK/K1 (3).jpg",
-      "images/GAZDIT KERESNEK/K1 (4).jpg"
-    ],
-    tags: ["barátságos", "aktív", "gyermekbarát"],
-    description: "Borisz egy rendkívül barátságos, energikus fiatal kan, aki imád emberi körben lenni. Kiváló választás aktív gazdik számára, szeret mozogni és tanulni.",
-    featured: true
-  },
-  {
     id: "k2",
-    name: "Betyár",
+    name: "Lucky",
     gender: "kan",
     size: "nagy",
     ageCategory: "felnott",
-    ageText: "3 éves",
-    housing: "kint",
+    ageText: "7 éves",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K2 (1).jpg",
@@ -38,17 +19,17 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K2 (4).jpg",
       "images/GAZDIT KERESNEK/K2 (5).jpg"
     ],
-    tags: ["értékes", "nyugodt", "hűséges"],
-    description: "Betyár egy magabiztos, méltóságteljes kutya, aki hűséges társra lelt benned, ha megkapja a megfelelő türelmet és törődést.",
+    tags: [],
+    description: "Lucky egy bámulatosan kedves és türelmes bull típusú kan kutya, aki hatalmas szíve ellenére még mindig a gazdáját keresi. Bár a múltjában voltak nehéz időszakok, ő ezt teljesen maga mögött hagyta, és mára egy kiegyensúlyozott, tündéri társsá vált. Imádja az embereket és a gyerekeket, minden kutyával remekül kijön, ráadásul teljesen szobatiszta és mintaszerűen sétál pórázon. Ha egy hűséges, csodálatos családi kutyát keresel, Lucky boldogan beköltözne a szívedbe!",
     featured: true
   },
   {
     id: "k3",
-    name: "Csoki",
+    name: "Jeffrey",
     gender: "kan",
-    size: "kicsi",
+    size: "kozepes",
     ageCategory: "kolyok",
-    ageText: "8 hónapos",
+    ageText: "1.5 éves",
     housing: "bent",
     virtualOwner: "",
     gallery: [
@@ -59,19 +40,19 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K3 (5).jpg",
       "images/GAZDIT KERESNEK/K3 (6).jpg"
     ],
-    tags: ["játékos", "kölyök", "cuki"],
-    description: "Csoki egy igazi örökmozgó apróság, aki imád játszani, és mindenben benne van, ami izgalmas. Ideális választás odafigyelő gazdiknak.",
+    tags: [],
+    description: "Jeffrey egy szuper helyes, kb. másfél éves pörgős kisfiú, akinél kedvesebb és játékosabb társat keresve sem találnál. Bár a múltjában átélt nehézségeket – nehéz körülmények közül mentettük a társaival –, a jelenben egy kifejezetten életvidám kutyus vált belőle. Szépen sétál pórázon, a szukákkal remekül kijön, a kanokkal pedig egy kicsit dominánsabb, de megfelelő irányítással imádnivaló társa a családnak. Benti tartással keresi az igazi gazdiját, aki mellett végre megtapasztalhatja a gondtalan boldogságot!",
     featured: true
   },
   {
     id: "k4",
-    name: "Cili",
-    gender: "szuka",
+    name: "Kolos",
+    gender: "kan",
     size: "kicsi",
     ageCategory: "fiatal",
-    ageText: "1.5 éves",
+    ageText: "11 hónapos",
     housing: "bent",
-    virtualOwner: "Szabó Péter",
+    virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K4 (1).jpg",
       "images/GAZDIT KERESNEK/K4 (2).jpg",
@@ -79,18 +60,18 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K4 (4).jpg",
       "images/GAZDIT KERESNEK/K4 (5).jpg"
     ],
-    tags: ["ragaszkodó", "lakásban tartható", "szeretnivaló"],
-    description: "Cili egy kicsi termetű, bújós szuka, aki a nap nagy részében szívesen pihen a gazdája ölében. Lakásban is könnyen tartható.",
+    tags: [],
+    description: "Kolos egy tüneményes, 11 hónapos pincser-tacskó keverék kamasz fiú, aki 5-6 hónapos apróságként érkezett a menhelyre a testvéreivel együtt. Mivel itt nevelkedett, az embereket és a gyerekeket tiszta szívéből imádja, egy igazi közvetlen, játékos kiskutya. Ivartalanítva, benti tartással várja az igazi családot, akik rengeteg szeretettel halmozzák el őt.",
     featured: false
   },
   {
     id: "k5",
-    name: "Mici",
-    gender: "szuka",
+    name: "Ferike",
+    gender: "kan",
     size: "kicsi",
-    ageCategory: "felnott",
-    ageText: "4 éves",
-    housing: "mindketto",
+    ageCategory: "fiatal",
+    ageText: "11 hónapos",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K5 (1).jpg",
@@ -98,18 +79,18 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K5 (3).jpg",
       "images/GAZDIT KERESNEK/K5 (4).jpg"
     ],
-    tags: ["kedves", "nyugodt", "barátságos"],
-    description: "Mici egy kiegyensúlyozott, nyugodt lelkű kutyus, aki jól jön ki más kutyákkal is, és imádja a nyugodt sétákat.",
+    tags: [],
+    description: "Ferike egy tüneményes, vidám energiabomba, aki azonnal belopja magát mindenki szívébe! Ez a 11 hónapos spicc-csivava keverék kisfiú szalmabála alól mentve érkezett hozzánk a testvéreivel együtt, de a múltja helyett ő már csak a játékra és a szeretetre fókuszál. Vagány, aktív és pörgős kis srác, aki imádja az emberek társaságát, szépen sétál pórázon, és a négylábú pajtásaival is mindig vevő egy jó kis szaladgálásra. Benti tartással keresi azt a szerető családot, ahol a közös játéké és a vidám mindennapoké a főszerep!",
     featured: false
   },
   {
     id: "k6",
-    name: "Pityu",
-    gender: "kan",
-    size: "kozepes",
-    ageCategory: "fiatal",
-    ageText: "2 éves",
-    housing: "mindketto",
+    name: "Málna",
+    gender: "szuka",
+    size: "kicsi",
+    ageCategory: "kolyok",
+    ageText: "5 hónapos",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K6 (1).jpg",
@@ -119,18 +100,18 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K6 (5).jpg",
       "images/GAZDIT KERESNEK/K6 (6).jpg"
     ],
-    tags: ["okos", "tanulékony", "mozgékony"],
-    description: "Pityu egy okos és figyelmes fiú, aki kifejezetten örül az emberi társaságnak, gyorsan tanul és imád labdázni.",
+    tags: [],
+    description: "Málna egy igazi tündéri kölyöklány, akiért egyszerűen lehetetlen nem rajongani! Ez az 5 hónapos kislány a menhely kapuja előtt kapott új esélyt az életre, de a nyitott, vidám természetéből semmit sem veszített: nagyon kiegyensúlyozott, és tiszta szívéből imádja az embereket, a gyerekeket, valamint a többi kutyust is. Jelenleg épp a pórázon sétálás alapjaival ismerkedik, és nagyon ügyesen halad. Benti tartással keresi az igazi álomcsaládot, ahová tökéletes, szeretetteljes családi kedvencként költözhet be!",
     featured: true
   },
   {
     id: "k7",
-    name: "Rozsi",
+    name: "Eszter",
     gender: "szuka",
     size: "kozepes",
-    ageCategory: "felnott",
-    ageText: "3 éves",
-    housing: "mindketto",
+    ageCategory: "fiatal",
+    ageText: "11 hónapos",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K7 (1).jpg",
@@ -139,18 +120,18 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K7 (4).jpg",
       "images/GAZDIT KERESNEK/K7 (5).jpg"
     ],
-    tags: ["békés", "szelíd", "hálás"],
-    description: "Rozsi egy csodás bundájú, rendkívül szelíd teremtés, aki keresi a nyugodt, biztonságos otthont, ahol végre leteheti a múlt terheit.",
+    tags: [],
+    description: "Eszter egy gyönyörű, 11 hónapos kislány – Feri testvére –, aki a szalmabála alól mentve érkezett hozzánk a többi tesójával együtt. Ő egy kicsit érzékenyebb lelkű, óvatosabb kutyus: szüksége van egy kis finom hangolódásra és türelemre az ismerkedésnél, de amint érzi a biztonságot és elfogad, egy végtelenül kedves, ragaszkodó társ válik belőle. Más kutyusokkal nagyszerűen megérti magát. Benti tartással keresi azt a megértő, melegszívű gazdit, aki biztosítja számára a nyugodt és szeretetteljes közeget!",
     featured: false
   },
   {
     id: "k8",
-    name: "Drótos Betti",
-    gender: "szuka",
+    name: "Nyurga",
+    gender: "kan",
     size: "kozepes",
-    ageCategory: "fiatal",
-    ageText: "2.5 éves",
-    housing: "bent",
+    ageCategory: "felnott",
+    ageText: "5 éves",
+    housing: "mindketto",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K8 (1).jpg",
@@ -158,17 +139,17 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K8 (3).jpg",
       "images/GAZDIT KERESNEK/K8 (4).jpg"
     ],
-    tags: ["barátságos", "különleges", "kedves"],
-    description: "Drótos Betti egyedi külsejű, kedves természetű kutyus, aki imádja, ha foglalkoznak vele és simogatják.",
+    tags: [],
+    description: "Nyurga egy végtelenül kedves, kb. 5 éves kan kutyus, aki még 2021-ben került hozzánk az anyukájával együtt egy telepről. Ő egy picit több odafigyelést és türelmet igényel: kezdetben óvatos az emberrel, de amint kiépül a bizalom és megismer téged, teljesen megnyílik. Gyönyörűen sétál pórázon, más kutyákkal pedig kifejezetten jó és kiegyensúlyozott a viszonya. Egy melegszívű, türelmes gazdi mellett keresi a végleges otthonát, aki szeretettel és odafigyeléssel fogadja őt a családban.",
     featured: false
   },
   {
     id: "k9",
-    name: "Bodza",
+    name: "Zserbó",
     gender: "szuka",
-    size: "kicsi",
-    ageCategory: "kolyok",
-    ageText: "10 hónapos",
+    size: "kozepes",
+    ageCategory: "felnott",
+    ageText: "3 éves",
     housing: "bent",
     virtualOwner: "",
     gallery: [
@@ -176,18 +157,18 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K9 (2).jpg",
       "images/GAZDIT KERESNEK/K9 (3).jpg"
     ],
-    tags: ["játékos", "bújós", "tündéri"],
-    description: "Bodza egy tündéri, hófehér fiatal kutyus, aki tele van szeretettel és nyitott a világra.",
+    tags: [],
+    description: "Zserbó egy nagyon érzékeny lelkű kutyus, akire a kunpeszéri erdőben, egy farakás alatt bukkantunk rá a testvéreivel együtt. A múltban átélt megpróbáltatások miatt jelenleg még tart az emberektől, így szakértő rehabilitáción vesz részt nálunk. Örökbefogadni csak a rehabilitációja végeztével, pár hónap múlva lehet majd őt, de higgyétek el, nagyon megéri kivárni ezt a kis csodát! Olyan melegszívű és türelmes gazdit keresünk számára, aki örömmel szán időt a fokozatos ismerkedésre, hogy a felkészülési idő alatt szépen, a saját tempójában csiszolódhassanak össze.",
     featured: true
   },
   {
     id: "k10",
-    name: "Füles",
-    gender: "kan",
+    name: "Csicsi",
+    gender: "szuka",
     size: "kozepes",
-    ageCategory: "fiatal",
-    ageText: "2 éves",
-    housing: "mindketto",
+    ageCategory: "felnott",
+    ageText: "~6 éves",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K10 (1).jpg",
@@ -195,17 +176,17 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K10 (3).jpg",
       "images/GAZDIT KERESNEK/K10 (4).jpg"
     ],
-    tags: ["barátságos", "hűséges", "játékos"],
-    description: "Füles egy barátságos, érdeklődő kutyus, aki minden sétát élvez és nagyon embercentrikus.",
+    tags: [],
+    description: "Csicsi egy végtelenül kedves, körülbelül 6 éves, tüneményes borzas pofijú kislány, aki egy másik szervezettől érkezett hozzánk, miután a testvérével együtt egy elhagyatott tanyáról mentették őket. A múltbeli megpróbáltatások miatt az emberekkel még egy kicsit óvatos, de türelemmel és törődéssel szépen feloldódik. Más kutyusokkal nagyszerűen megérti magát, és gyönyörűen sétál pórázon is. Kizárólag benti tartással keresi azt a türelmes gazdit, akinél végre igazi biztonságra és szerető otthonra lelhet.",
     featured: false
   },
   {
     id: "k11",
-    name: "Zsebi",
+    name: "Blanka",
     gender: "szuka",
     size: "kicsi",
     ageCategory: "kolyok",
-    ageText: "1 éves",
+    ageText: "5 hónapos",
     housing: "bent",
     virtualOwner: "",
     gallery: [
@@ -213,44 +194,44 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K11 (2).jpg",
       "images/GAZDIT KERESNEK/K11 (3).jpg"
     ],
-    tags: ["cuki", "bújós", "nyugodt"],
-    description: "Zsebi egy igazi bújós kedvenc, aki imádja a simogatást és csendesen elél bárhol.",
+    tags: [],
+    description: "Blanka egy tüneményes, 5 hónapos hófehér kölyöklány, aki a testvéreivel együtt a menhely elé kitéve kapott új esélyt az életre. Rendkívül cuki, nyitott és szuperül szocializált kiskutya, aki azonnal megtalálja a hangot emberrel és kutyapajtásokkal egyaránt. Életvidám, lelkes és nagyon játékos energiabomba, aki alig várja, hogy egy szerető család tagjaként megmutathassa, mekkora szeretet lakozik benne!",
     featured: false
   },
   {
     id: "k12",
-    name: "Maxi",
-    gender: "kan",
-    size: "nagy",
-    ageCategory: "felnott",
-    ageText: "3 éves",
-    housing: "kint",
+    name: "Petra",
+    gender: "szuka",
+    size: "kicsi",
+    ageCategory: "kolyok",
+    ageText: "5 hónapos",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K12 (1).jpg",
       "images/GAZDIT KERESNEK/K12 (2).jpg",
       "images/GAZDIT KERESNEK/K12 (3).jpg"
     ],
-    tags: ["nyugodt", "barátságos", "megbízható"],
-    description: "Maxi egy kiegyensúlyozott, nyugodt nagytestű kutyus, aki kiváló házőrző és hűséges családi társ.",
+    tags: [],
+    description: "Petra a testvérsoros középső kislánya, egy ragyogó fekete szőrű, 5 hónapos tündér! Bár a menhely kapuja előtt indult az élete története, a kedvéből és a szívéből ez semmit nem vett el: egy igazán pörgős, lelkes és játékos kiskutya, aki minden közös kalandra vevő. Bárkivel pillanatok alatt barátságot köt, tiszta szívéből rajong a figyelmért, és tökéletes családi kedvencként várja az igazi gazdi érkezését!",
     featured: false
   },
   {
     id: "k13",
-    name: "Zorka",
-    gender: "szuka",
+    name: "Petike",
+    gender: "kan",
     size: "kicsi",
-    ageCategory: "fiatal",
-    ageText: "1.5 éves",
-    housing: "mindketto",
+    ageCategory: "kolyok",
+    ageText: "5 hónapos",
+    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K13 (1).jpg",
       "images/GAZDIT KERESNEK/K13 (2).jpg",
       "images/GAZDIT KERESNEK/K13 (3).jpg"
     ],
-    tags: ["játékos", "barátságos", "aktív"],
-    description: "Zorka egy tündéri, aktív kutyus, aki alig várja, hogy gazdára találjon és belevágjon a közös kalandokba.",
+    tags: [],
+    description: "Nézzétek ezt az imádnivaló, mackós pofit! Petike a testvérpár 5 hónapos fekete-barna kisfiú tagja, aki a játékos nyelvnyújtogatós mosolyával mindenkit elvarázsol. Végtelenül kedves, tüneményes és energiával teli kiskutya, aki imádja a közös mókázást, a szaladgálást és a szeretgetést. Bármelyik vidám, aktív család életébe rengeteg mosolyt és napsütést hozna!",
     featured: false
   }
 ];
@@ -286,10 +267,6 @@ function createDogCardHTML(dog) {
     ? `<span class="text-[11px] text-emerald-700 font-medium flex items-center gap-1 mt-1"><span>🐾</span> Virtuális gazdi: ${dog.virtualOwner}</span>`
     : `<span class="text-[11px] text-[#c85a32] font-medium flex items-center gap-1 mt-1"><span>⭐</span> Virtuális gazdit keres</span>`;
 
-  const traitsText = dog.tags && dog.tags.length > 0 
-    ? dog.tags.slice(0, 2).join(" • ") 
-    : "";
-
   return `
     <div onclick="openDogModal('${dog.id}')" class="bg-white rounded-2xl overflow-hidden border border-[#eedfcc] shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col group">
       <div class="relative aspect-[4/5] bg-stone-100 overflow-hidden">
@@ -315,7 +292,7 @@ function createDogCardHTML(dog) {
               ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}
             </span>
           </div>
-          <p class="text-xs text-stone-500 font-medium capitalize">${traitsText} • ${dog.ageText}</p>
+          <p class="text-xs text-stone-500 font-medium capitalize">${formatSize(dog.size)} • ${dog.ageText}</p>
           ${virtualSubtextHTML}
         </div>
 
@@ -426,10 +403,6 @@ function openDogModal(dogId) {
 
           <div class="space-y-2 text-stone-600 text-sm leading-relaxed">
             <p>${dog.description}</p>
-          </div>
-
-          <div class="flex flex-wrap gap-1.5 pt-2">
-            ${dog.tags.map(tag => `<span class="bg-[#faf7f2] border border-[#eedfcc] text-stone-700 text-xs px-3 py-1 rounded-full font-medium">#${tag}</span>`).join("")}
           </div>
 
           <div class="pt-6 border-t border-stone-100 flex items-center gap-3">

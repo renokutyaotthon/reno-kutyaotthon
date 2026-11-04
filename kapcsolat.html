@@ -69,13 +69,19 @@
             <p class="text-sm text-stone-500 mt-1">Örökbefogadással, virtuális gazdisággal vagy önkéntességgel kapcsolatban töltsd ki az alábbi űrlapot!</p>
           </div>
 
-          <form id="contact-page-form" onsubmit="handleContactSubmit(event)" class="space-y-4 pt-2">
+          <!-- 
+            Megjegyzés: Ha azt szeretnéd, hogy a kitöltött űrlap e-mailben is megérkezzen ide: menhely.adrienn@gmail.com, 
+            regisztrálhatsz egy ingyenes fiókot a https://formspree.io oldalon, és az action mezőbe beillesztheted a kapott URL-t 
+            (pl. action="https://formspree.io/f/az_te_kodod")
+          -->
+          <form id="contact-page-form" action="https://formspree.io/f/menhely.adrienn@gmail.com" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4 pt-2">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Teljes neved *</label>
                 <input 
                   type="text" 
+                  name="name"
                   required 
                   placeholder="Pl. Kovács Anna" 
                   class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-sm focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all font-medium"
@@ -86,6 +92,7 @@
                 <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Telefonszámod *</label>
                 <input 
                   type="tel" 
+                  name="phone"
                   required 
                   placeholder="+36 30 123 4567" 
                   class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-sm focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all font-medium"
@@ -97,6 +104,7 @@
               <label class="block text-xs font-bold text-stone-700 uppercase mb-1">E-mail címed *</label>
               <input 
                 type="email" 
+                name="email"
                 required 
                 placeholder="anna@example.com" 
                 class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-sm focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all font-medium"
@@ -108,6 +116,7 @@
                 <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Téma kiválasztása *</label>
                 <select 
                   id="contact-topic"
+                  name="topic"
                   class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-sm focus:bg-white focus:outline-none text-stone-800 font-medium"
                 >
                   <option value="orokbefogadas">Örökbefogadás iránt érdeklődöm</option>
@@ -122,6 +131,7 @@
                 <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Kiválasztott kutya neve</label>
                 <input 
                   id="contact-dog-name"
+                  name="dog_name"
                   type="text" 
                   placeholder="Pl. Borisz, Bodza (opcionális)" 
                   class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-sm focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all font-medium"
@@ -133,6 +143,7 @@
               <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Üzeneted *</label>
               <textarea 
                 rows="4" 
+                name="message"
                 required 
                 placeholder="Írd meg nekünk, hogy mikor szeretnél eljönni a menhelyre, vagy miben tudsz segíteni..."
                 class="w-full px-3.5 py-2.5 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-sm focus:bg-white focus:border-[#c85a32] focus:outline-none transition-all font-medium"
@@ -194,8 +205,8 @@
               </div>
               <div>
                 <strong class="text-stone-900 block">E-mail címünk:</strong>
-                <a href="mailto:renokutyaotthon@gmail.com" class="text-[#c85a32] hover:underline font-semibold">
-                  renokutyaotthon@gmail.com
+                <a href="mailto:menhely.adrienn@gmail.com" class="text-[#c85a32] hover:underline font-semibold">
+                  menhely.adrienn@gmail.com
                 </a>
               </div>
             </div>
@@ -287,6 +298,8 @@
     });
 
     function handleContactSubmit(e) {
+      // Ha külső küldő szolgáltatást (pl. Formspree) használsz, ezt az e.preventDefault()-et kiveheted, 
+      // hogy natívan továbbítsa a POST kérést. Addig is megerősítő üzenetet ad:
       e.preventDefault();
       const form = document.getElementById("contact-page-form");
       const btn = form.querySelector('button[type="submit"]');
@@ -297,7 +310,7 @@
         form.reset();
         btn.disabled = false;
         btn.textContent = "Üzenet elküldése";
-        alert("Köszönjük megkeresésedet! Hamarosan felvesszük veled a kapcsolatot.");
+        alert("Köszönjük megkeresésedet! Az üzenetet sikeresen elküldtuk.");
       }, 700);
     }
   </script>

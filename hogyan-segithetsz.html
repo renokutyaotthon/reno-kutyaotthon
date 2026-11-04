@@ -73,21 +73,21 @@
             Legyél egy kutyus Virtuális Gazdája!
           </h2>
           <p class="text-base text-stone-700 leading-relaxed">
-            Ha nem tudsz otthon kutyát tartani, de szeretnél egy konkrét védencünkről gondoskodni, válj a kiválasztott kutya hivatalos keresztszülőjévé!
+            Ha nem tudsz otthon kutyát tartani, de szeretnél egy konkrét védencünkről gondoskodni, válj a kiválasztott kutya hivatalos keresztszülőjévé! (Ettől továbbra is örökbefogadható marad a kutyus)
           </p>
 
           <div class="space-y-2 text-base text-stone-700">
             <p><strong>• Egy kutyus = Egy gazdi:</strong> A támogatásod teljesen személyes; a választott kedvenc képe mellé kiírjuk a nevedet.</p>
             <p><strong>• Személyes találkozás és séta:</strong> Látogathatod a védencedet, és elviheted egy szuper sétára.</p>
             <p><strong>• Rendszeres támogatás:</strong> A virtuális örökbefogadás díja havi 5 000 Ft.</p>
-            <p><strong>• Oklevél és hála:</strong> Cserébe névre szóló Virtuális Örökbefogadói Oklevelet küldünk neked.</p>
+            <p><strong>• Oklevél és hála:</strong> Cserébe kutyusaink végtelen szeretetével, csóváló farkincáival és egy névre szóló Virtuális Örökbefogadói Oklevéllel ajándékozunk meg!</p>
           </div>
 
-          <div class="pt-2 text-sm text-stone-700 space-y-1">
+          <div class="pt-2 text-base text-stone-700 space-y-1">
             <p class="font-bold text-stone-900">Hogyan csináld?</p>
             <p>1. Válassz egy kutyust a <a href="gazdit-keresnek.html" class="text-[#c85a32] underline font-semibold">Gazdit keresnek</a> oldalon, akinél még nincs virtuális gazdi név.</p>
             <p>2. Indíts el egy havi 5 000 Ft-os utalást. Közlemény: <em>Virtuális gazdi - [Kutya Neve] - [A te neved]</em>.</p>
-            <p>3. Írj egy e-mailt a <a href="mailto:renokutyaotthon@gmail.com" class="text-[#c85a32] underline">renokutyaotthon@gmail.com</a> címre.</p>
+            <p>3. Vedd fel velünk a kapcsolatot: írj nekünk a <a href="kapcsolat.html?topic=virtualis_gazdi" class="text-[#c85a32] underline font-semibold">menhely.adrienn@gmail.com</a> címre vagy a kapcsolat űrlapon keresztül.</p>
           </div>
         </div>
 
@@ -110,11 +110,11 @@
           <p class="text-base text-stone-700 leading-relaxed">
             Az adó 1%-os felajánlások jelentik az alapítványunk működésének és a kutyusok orvosi ellátásának legfőbb támaszát.
           </p>
-          <div class="space-y-2 text-sm text-stone-800 bg-[#f5efe6] p-5 rounded-xl border border-[#eedfcc]">
+          <div class="space-y-2 text-base text-stone-800 bg-[#f5efe6] p-5 rounded-xl border border-[#eedfcc]">
             <p><strong>Kedvezményezett neve:</strong> Rénó Kutyaotthon Alapítvány</p>
             <div class="flex items-center justify-between pt-1">
               <span><strong>Adószámunk:</strong> 18870190-1-03</span>
-              <button onclick="copyToClipboard('18870190-1-03', 'Adószám kimásolva!')" class="text-[#c85a32] hover:underline font-bold text-sm">[Másolás]</button>
+              <button onclick="copyToClipboard('18870190-1-03', 'Adószám kimásolva!')" class="text-[#c85a32] hover:underline font-bold text-base">[Másolás]</button>
             </div>
           </div>
         </div>
@@ -128,14 +128,24 @@
           <p class="text-base text-stone-700 leading-relaxed">
             Akár egy tál étel árával is hozzájárulhatsz a mentett kutyusok napi ellátásához és gyógykezeléséhez.
           </p>
-          <div class="space-y-2 text-sm text-stone-800 bg-[#f5efe6] p-5 rounded-xl border border-[#eedfcc]">
-            <p><strong>Név:</strong> Rénó Kutyaotthon Alapítvány</p>
-            <p><strong>Bank:</strong> K&H Bank</p>
-            <div class="flex items-center justify-between">
-              <span><strong>Számlaszám:</strong> 10402599-50526751-75871018</span>
-              <button onclick="copyToClipboard('104025995052675175871018', 'Számlaszám kimásolva!')" class="text-[#c85a32] hover:underline font-bold text-sm">[Másolás]</button>
+          
+          <!-- Banki adatok + Lekódolt QR-kód doboz -->
+          <div class="bg-[#f5efe6] p-5 rounded-xl border border-[#eedfcc] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="space-y-2 text-base text-stone-800 w-full">
+              <p><strong>Név:</strong> Rénó Kutyaotthon Alapítvány</p>
+              <p><strong>Bank:</strong> K&H Bank</p>
+              <div class="flex items-center justify-between">
+                <span><strong>Számlaszám:</strong> 10402599-50526751-75871018</span>
+                <button onclick="copyToClipboard('104025995052675175871018', 'Számlaszám kimásolva!')" class="text-[#c85a32] hover:underline font-bold text-base ml-2">[Másolás]</button>
+              </div>
+              <p><strong>Közlemény:</strong> Adomány</p>
             </div>
-            <p><strong>Közlemény:</strong> Adomány</p>
+            
+            <!-- Automatikusan lekódolt QR Kód tartódoboza -->
+            <div class="shrink-0 text-center bg-white p-2.5 rounded-xl border border-[#eedfcc] shadow-2xs flex flex-col items-center">
+              <div id="mnb-qrcode"></div>
+              <span class="text-[10px] text-stone-500 font-medium block mt-1">Olvasd be!</span>
+            </div>
           </div>
         </div>
       </section>
@@ -156,15 +166,15 @@
           <div class="space-y-3 text-base text-stone-700">
             <div>
               <strong class="text-stone-900 block mb-1">🦴 Amire mindig szükség van:</strong>
-              <p class="text-stone-600 text-sm">Száraztáp, konzerv, bolha- és kullancsirtó, fém etetőtálak, pórázok, hámok, fertőtlenítő- és tisztítószerek, plédek, takarók.</p>
+              <p class="text-stone-700 text-base">A kutyusok mindennapjaihoz most elsősorban minőségi élelemre – száraztápra és konzervre –, valamint fertőtlenítő- és tisztítószerekre van a legnagyobb szükségünk.</p>
             </div>
             <div>
               <strong class="text-stone-900 block mb-1">🐾 Sétáltatás és önkéntesség:</strong>
-              <p class="text-stone-600 text-sm">Szeretettel várunk önkénteseket kutyasétáltatásra, kenneltakarításra és a menhely körüli munkákra!</p>
+              <p class="text-stone-700 text-base">Szeretettel várunk önkénteseket kutyasétáltatásra, kenneltakarításra és a menhely körüli munkákra!</p>
             </div>
           </div>
 
-          <p class="text-sm text-stone-600 italic pt-2">
+          <p class="text-base text-stone-600 italic pt-2">
             A tárgyi adományok leadásához vagy önkéntes jelentkezéshez egyeztess velünk a <strong class="text-stone-900">+36 70 424 9344</strong> telefonszámon!
           </p>
         </div>
@@ -186,6 +196,8 @@
     </div>
   </footer>
 
+  <!-- QR-kód generáló külső könyvtár -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="js/app.js"></script>
   <script>
     // Mobil menü nyitó-záró függvény
@@ -213,6 +225,20 @@
         console.error('Hiba a másolás során: ', err);
       });
     }
+
+    // Automatikus MNB-szabványos QR-kód kirajzolása betöltődés után
+    document.addEventListener("DOMContentLoaded", () => {
+      const mnbQrString = "HCDV01\nHUF\n\nRénó Kutyaotthon Alapítvány\nHU83104025995052675175871018\n\n\nAdomany\n";
+      
+      new QRCode(document.getElementById("mnb-qrcode"), {
+        text: mnbQrString,
+        width: 104,
+        height: 104,
+        colorDark : "#1c1917",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.M
+      });
+    });
   </script>
 </body>
 </html>
