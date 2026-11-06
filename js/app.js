@@ -149,7 +149,7 @@ const DOGS_DATA = [
     gender: "szuka",
     size: "kozepes",
     ageCategory: "felnott",
-    ageText: "3 éves",
+    ageText: "2 éves",
     housing: "bent",
     virtualOwner: "",
     gallery: [

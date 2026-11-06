@@ -216,15 +216,15 @@
           <div class="space-y-3 text-sm text-stone-700 pt-2">
             <div class="flex justify-between py-2 border-b border-[#eedfcc]/60">
               <span class="font-medium">Hétfő – Péntek:</span>
-              <strong class="text-stone-900">08:00 – 20:00</strong>
+              <strong class="text-stone-900">08:00 – 13:00 és 18:00 – 20:00</strong>
             </div>
             <div class="flex justify-between py-2 border-b border-[#eedfcc]/60">
-              <span class="font-medium">Szombat (Sétáltatás is):</span>
-              <strong class="text-stone-900">09:00 – 16:00</strong>
+              <span class="font-medium">Szombat:</span>
+              <strong class="text-stone-900">09:00 – 13:00</strong>
             </div>
             <div class="flex justify-between py-2">
-              <span class="text-stone-500 font-medium">Vasárnap:</span>
-              <strong class="text-rose-600">Zárva (Pihenőnap)</strong>
+              <span class="font-medium">Vasárnap:</span>
+              <strong class="text-stone-900">09:00 – 12:00</strong>
             </div>
           </div>
         </div>
@@ -294,7 +294,6 @@
     });
 
     function handleContactSubmit(e) {
-      // Formspree natív POST beküldés engedélyezése:
       const form = document.getElementById("contact-page-form");
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
