@@ -60,16 +60,27 @@
   <header class="relative w-full flex justify-between items-center px-4 sm:px-12 py-4 bg-[#4a4543] z-50">
     <a href="index.html" class="text-white text-xl sm:text-2xl font-bold hover:opacity-90 transition-opacity">Rénó Kutyaotthon</a>
     
-    <!-- Asztali navigáció -->
-    <nav class="hidden lg:flex items-center space-x-2">
-      <a href="index.html" class="text-white text-sm font-medium hover:underline active">Kezdőlap</a>
-      <span class="text-white/60">/</span>
-      <a href="gazdit-keresnek.html" class="text-white text-sm font-medium hover:underline">Gazdit keresnek</a>
-      <span class="text-white/60">/</span>
-      <a href="hogyan-segithetsz.html" class="text-white text-sm font-medium hover:underline">Hogyan segíthetsz?</a>
-      <span class="text-white/60">/</span>
-      <a href="kapcsolat.html" class="text-white text-sm font-medium hover:underline">Kapcsolat és Örökbefogadás</a>
-    </nav>
+    <!-- Asztali navigáció és közösségi ikonok -->
+    <div class="hidden lg:flex items-center space-x-6">
+      <nav class="flex items-center space-x-2">
+        <a href="index.html" class="text-white text-sm font-medium hover:underline active">Kezdőlap</a>
+        <span class="text-white/60">/</span>
+        <a href="gazdit-keresnek.html" class="text-white text-sm font-medium hover:underline">Gazdit keresnek</a>
+        <span class="text-white/60">/</span>
+        <a href="hogyan-segithetsz.html" class="text-white text-sm font-medium hover:underline">Hogyan segíthetsz?</a>
+        <span class="text-white/60">/</span>
+        <a href="kapcsolat.html" class="text-white text-sm font-medium hover:underline">Kapcsolat és Örökbefogadás</a>
+      </nav>
+      <!-- Közösségi ikonok a fejlécben -->
+      <div class="flex items-center space-x-3 border-l border-white/20 pl-6">
+        <a href="https://www.facebook.com/renokutyiotthon" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#c85a32] transition-colors text-xs" title="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/renokutyaotthon/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#c85a32] transition-colors text-xs" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
 
     <!-- Mobil hamburger gomb -->
     <button onclick="toggleMobileMenu()" class="lg:hidden text-white text-2xl focus:outline-none p-2">
@@ -81,10 +92,19 @@
       <a href="index.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Kezdőlap</a>
       <a href="gazdit-keresnek.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Gazdit keresnek</a>
       <a href="hogyan-segithetsz.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Hogyan segíthetsz?</a>
-      <a href="kapcsolat.html" class="text-white text-base font-medium py-1">Kapcsolat és Örökbefogadás</a>
+      <a href="kapcsolat.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Kapcsolat és Örökbefogadás</a>
+      <!-- Mobil közösségi ikonok -->
+      <div class="flex items-center space-x-4 pt-2">
+        <span class="text-white/60 text-xs uppercase tracking-wider font-bold">Kövess minket:</span>
+        <a href="https://www.facebook.com/renokutyiotthon" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#c85a32] transition-colors text-sm">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/renokutyaotthon/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#c85a32] transition-colors text-sm">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
     </div>
   </header>
-
   <!-- 2. Hero szekció -->
   <section class="hero">
     <div class="hero-slider">
@@ -181,10 +201,18 @@
   </section>
 
   <!-- 5. Lábléc -->
-  <footer>
-    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-      <p>&copy; 2026 Kutyamenhely | Minden jog fenntartva.</p>
-      <p class="webnode-credit">Az oldalt a Webnode működteti • Súgó</p>
+<footer>
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px; text-align: center;">
+      <!-- Közösségi média ikonok -->
+      <div class="flex justify-center items-center gap-4 mb-4">
+        <a href="https://www.facebook.com/renokutyiotthon" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#5c5452] text-white flex items-center justify-center hover:bg-[#c85a32] transition-colors" title="Facebook oldalunk">
+          <i class="fa-brands fa-facebook-f text-base"></i>
+        </a>
+        <a href="https://www.instagram.com/renokutyaotthon/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#5c5452] text-white flex items-center justify-center hover:bg-[#c85a32] transition-colors" title="Instagram oldalunk">
+          <i class="fa-brands fa-instagram text-base"></i>
+        </a>
+      </div>
+      <p>&copy; 2026 Rénó Kutyaotthon | Minden jog fenntartva.</p>
     </div>
   </footer>
 
