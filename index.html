@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="hu" class="scroll-smooth">
 <head>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TGXLH3K5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rénó Kutyaotthon | Kezdőlap</title>
@@ -201,7 +210,7 @@
   </section>
 
   <!-- 5. Lábléc -->
-<footer>
+  <footer>
     <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px; text-align: center;">
       <!-- Közösségi média ikonok -->
       <div class="flex justify-center items-center gap-4 mb-4">
@@ -216,8 +225,39 @@
     </div>
   </footer>
 
+  <!-- ==================== SÜTI (COOKIE) SÁV ==================== -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-[#4a4543] text-white p-4 sm:p-5 shadow-2xl border-t border-stone-600 hidden">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs sm:text-sm leading-relaxed text-stone-200 text-center sm:text-left">
+        <span>🍪</span> Weboldalunk sütiket (cookie-kat) használ a látogatottság mérése és a jobb felhasználói élmény érdekében. A folytatással elfogadod ezek használatát. 
+        <a href="kapcsolat.html" class="underline text-[#f5d5c5] hover:text-white font-medium ml-1">Részletek</a>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <button onclick="acceptCookies()" class="px-5 py-2.5 bg-[#c85a32] hover:bg-[#b34823] text-white text-xs sm:text-sm font-bold rounded-xl transition-colors shadow-sm">
+          Elfogadom
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/app.js"></script>
   <script>
+    // Süti sáv logika
+    function checkCookieConsent() {
+      if (!localStorage.getItem('reno_cookie_accepted')) {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.classList.remove('hidden');
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('reno_cookie_accepted', 'true');
+      const banner = document.getElementById('cookie-banner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', checkCookieConsent);
+
     // Mobil menü nyitó-záró függvény
     function toggleMobileMenu() {
       const menu = document.getElementById("mobile-menu");

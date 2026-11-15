@@ -10,7 +10,6 @@ const DOGS_DATA = [
     size: "nagy",
     ageCategory: "felnott",
     ageText: "7 éves",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K2 (1).jpg",
@@ -30,7 +29,6 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "kolyok",
     ageText: "1.5 éves",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K3 (1).jpg",
@@ -51,7 +49,6 @@ const DOGS_DATA = [
     size: "kicsi",
     ageCategory: "fiatal",
     ageText: "11 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K4 (1).jpg",
@@ -71,7 +68,6 @@ const DOGS_DATA = [
     size: "kicsi",
     ageCategory: "fiatal",
     ageText: "11 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K5 (1).jpg",
@@ -90,7 +86,6 @@ const DOGS_DATA = [
     size: "kicsi",
     ageCategory: "kolyok",
     ageText: "5 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K6 (1).jpg",
@@ -111,7 +106,6 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "fiatal",
     ageText: "11 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K7 (1).jpg",
@@ -131,7 +125,6 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "felnott",
     ageText: "5 éves",
-    housing: "mindketto",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K8 (1).jpg",
@@ -150,7 +143,6 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "felnott",
     ageText: "2 éves",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K9 (1).jpg",
@@ -168,7 +160,6 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "felnott",
     ageText: "~6 éves",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K10 (1).jpg",
@@ -187,7 +178,6 @@ const DOGS_DATA = [
     size: "kicsi",
     ageCategory: "kolyok",
     ageText: "5 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K11 (1).jpg",
@@ -205,7 +195,6 @@ const DOGS_DATA = [
     size: "kicsi",
     ageCategory: "kolyok",
     ageText: "5 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K12 (1).jpg",
@@ -223,7 +212,6 @@ const DOGS_DATA = [
     size: "kicsi",
     ageCategory: "kolyok",
     ageText: "5 hónapos",
-    housing: "bent",
     virtualOwner: "",
     gallery: [
       "images/GAZDIT KERESNEK/K13 (1).jpg",
@@ -231,7 +219,7 @@ const DOGS_DATA = [
       "images/GAZDIT KERESNEK/K13 (3).jpg"
     ],
     tags: [],
-    description: "Nézzétek ezt az imádnivaló, mackós pofit! Petike a testvérpár 5 hónapos fekete-barna kisfiú tagja, aki a játékos nyelvnyújtogatós mosolyával mindenkit elvarázsol. Végtelenül kedves, tüneményes és energiával teli kiskutya, aki imádja a közös mókázást, a szaladgálást és a szeretgetést. Bármelyik vidám, aktív család életébe rengeteg mosolyt és napsütést hozna!",
+    description: "Nézzétek ezt az imádnivaló, mackós pofit! Petike a testvérpár 5 hónapos fekete-barna kisfiú tagja, aki a játékos nyelvnyújtogatós mosolyával mindenkit elvarázsol. Végtelenül kedves, tüneményes és energiával teli kiskutya, aki imád a közös mókázást, a szaladgálást és a szeretgetést. Bármelyik vidám, aktív család életébe rengeteg mosolyt és napsütést hozna!",
     featured: false
   }
 ];
@@ -243,12 +231,6 @@ function formatSize(size) {
   if (size === 'kozepes') return 'Közepes testű';
   if (size === 'nagy') return 'Nagytestű';
   return size;
-}
-
-function formatHousing(housing) {
-  if (housing === 'bent') return 'Bent';
-  if (housing === 'kint') return 'Kint';
-  return 'Bármilyen tartás';
 }
 
 // ==========================================
@@ -385,8 +367,8 @@ function openDogModal(dogId) {
             ${modalVirtualHTML}
           </div>
 
-          <!-- Életkor, méret és tartás -->
-          <div class="grid grid-cols-3 gap-2 text-stone-700">
+          <!-- Életkor és méret -->
+          <div class="grid grid-cols-2 gap-2 text-stone-700">
             <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
               <span class="text-[10px] text-stone-400 block uppercase font-bold">Életkor</span>
               <strong class="text-xs font-semibold">${dog.ageText}</strong>
@@ -394,10 +376,6 @@ function openDogModal(dogId) {
             <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
               <span class="text-[10px] text-stone-400 block uppercase font-bold">Méret</span>
               <strong class="text-xs font-semibold">${formatSize(dog.size)}</strong>
-            </div>
-            <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
-              <span class="text-[10px] text-stone-400 block uppercase font-bold">Tartás</span>
-              <strong class="text-xs font-semibold">${formatHousing(dog.housing)}</strong>
             </div>
           </div>
 
