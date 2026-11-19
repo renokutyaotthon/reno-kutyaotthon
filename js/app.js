@@ -10,7 +10,7 @@ const DOGS_DATA = [
     size: "nagy",
     ageCategory: "felnott",
     ageText: "7 éves",
-    virtualOwner: "",
+    virtualOwner: "Horváthné Bács Katinka",
     gallery: [
       "images/GAZDIT KERESNEK/K2 (1).jpg",
       "images/GAZDIT KERESNEK/K2 (2).jpg",
