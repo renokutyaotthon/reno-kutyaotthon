@@ -487,7 +487,7 @@ const DOGS_DATA = [
     size: "nagy",
     ageCategory: "felnott",
     ageText: "6 éves",
-    virtualOwner: "",
+    virtualOwner: "Mészáros Ágnes",
     gallery: [
       "images/GAZDIT KERESNEK/K22 (1).jpg",
       "images/GAZDIT KERESNEK/K22 (2).jpg",
