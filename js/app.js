@@ -277,7 +277,7 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "felnott",
     ageText: "4 év",
-    virtualOwner: "",
+    virtualOwner: "Rádi Angéla",
     gallery: [
       "images/GAZDIT KERESNEK/K14 (1).jpg",
       "images/GAZDIT KERESNEK/K14 (2).jpg",
@@ -438,7 +438,7 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "felnott",
     ageText: "5 éves",
-    virtualOwner: "",
+    virtualOwner: "Almási Zita és Anna",
     gallery: [
       "images/GAZDIT KERESNEK/K20 (1).jpg",
       "images/GAZDIT KERESNEK/K20 (2).jpg",
