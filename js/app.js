@@ -538,7 +538,7 @@ const DOGS_DATA = [
     size: "kozepes",
     ageCategory: "felnott",
     ageText: "5 éves",
-    virtualOwner: "",
+    virtualOwner: "Rádi Evelin",
     gallery: [
       "images/GAZDIT KERESNEK/K25 (1).jpg",
       "images/GAZDIT KERESNEK/K25 (2).jpg",
