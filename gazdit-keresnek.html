@@ -223,6 +223,37 @@
       return typeof getDogAgeCategory === "function" ? getDogAgeCategory(dog) : dog.ageCategory;
     }
 
+    function getDogShareUrl(dogId) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("dog", dogId);
+      return url.toString();
+    }
+
+    async function shareDogProfile(dogId, dogName) {
+      const shareUrl = getDogShareUrl(dogId);
+      const shareText = `Nézd meg ${dogName} adatlapját a Rénó Kutyaotthon oldalán:`;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: `${dogName} - Rénó Kutyaotthon`,
+            text: shareText,
+            url: shareUrl
+          });
+          return;
+        } catch (err) {
+          // Ha a felhasználó bezárta a megosztóablakot, esünk vissza a vágólapra másolásra
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        alert(`${dogName} adatlapjának linkje a vágólapra másolva!`);
+      } catch (err) {
+        prompt("Másold ki ezt a linket a megosztáshoz:", shareUrl);
+      }
+    }
+
     let galleryFilters = {
       search: "",
       size: "all",
@@ -409,10 +440,14 @@
                 ${dog.tags.map(tag => `<span class="bg-[#faf7f2] border border-[#eedfcc] text-stone-700 text-xs px-2.5 py-1 rounded-full font-medium">#${tag}</span>`).join("")}
               </div>
 
-              <div class="pt-4 sm:pt-6 border-t border-stone-100 flex items-center gap-3">
-                <a href="kapcsolat.html?dog=${dog.id}" class="w-full py-3 bg-[#c85a32] hover:bg-[#b34823] text-white text-xs font-bold rounded-xl shadow-sm transition-colors text-center block">
+              <div class="pt-4 sm:pt-6 border-t border-stone-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                <a href="kapcsolat.html?dog=${dog.id}" class="flex-1 py-3 px-4 bg-[#c85a32] hover:bg-[#b34823] text-white text-xs font-bold rounded-xl shadow-sm transition-colors text-center block">
                   Örökbefogadom ezt a kutyust
                 </a>
+                <button type="button" onclick="shareDogProfile('${dog.id}', '${dog.name.replace(/'/g, "\\'")}')" class="py-3 px-4 bg-[#faf7f2] hover:bg-[#f3ece1] text-stone-800 border border-[#eedfcc] text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-1.5 shrink-0">
+                  <i class="fa-solid fa-share-nodes text-[#c85a32]"></i>
+                  <span>Megosztás</span>
+                </button>
               </div>
             </div>
           </div>
@@ -434,6 +469,12 @@
       if (g) g.addEventListener("change", (e) => { galleryFilters.gender = e.target.value; refreshGalleryView(); });
 
       refreshGalleryView();
+
+      const params = new URLSearchParams(window.location.search);
+      const dogIdFromUrl = params.get("dog");
+      if (dogIdFromUrl && typeof DOGS_DATA !== "undefined" && DOGS_DATA.some(d => d.id === dogIdFromUrl)) {
+        openDogModal(dogIdFromUrl);
+      }
     });
   </script>
 </body>
