@@ -8,6 +8,8 @@ const DOGS_DATA = [
     name: "Lucky",
     gender: "kan",
     size: "nagy",
+    bornAt: "2019-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "7 éves",
     virtualOwner: "Horváthné Bács Katinka",
@@ -31,7 +33,9 @@ const DOGS_DATA = [
     name: "Jeffrey",
     gender: "kan",
     size: "kozepes",
-    ageCategory: "kolyok",
+    bornAt: "2025-05",
+    approxAge: false,
+    ageCategory: "fiatal",
     ageText: "1.5 éves",
     virtualOwner: "",
     gallery: [
@@ -55,6 +59,8 @@ const DOGS_DATA = [
     name: "Kolos",
     gender: "kan",
     size: "kicsi",
+    bornAt: "2025-12",
+    approxAge: false,
     ageCategory: "fiatal",
     ageText: "11 hónapos",
     virtualOwner: "",
@@ -78,6 +84,8 @@ const DOGS_DATA = [
     name: "Ferike",
     gender: "kan",
     size: "kicsi",
+    bornAt: "2025-12",
+    approxAge: false,
     ageCategory: "fiatal",
     ageText: "11 hónapos",
     virtualOwner: "",
@@ -100,6 +108,8 @@ const DOGS_DATA = [
     name: "Málna",
     gender: "szuka",
     size: "kicsi",
+    bornAt: "2026-06",
+    approxAge: false,
     ageCategory: "kolyok",
     ageText: "5 hónapos",
     virtualOwner: "",
@@ -120,33 +130,12 @@ const DOGS_DATA = [
     featured: true
   },
   {
-    id: "k7",
-    name: "Eszter",
-    gender: "szuka",
-    size: "kicsi",
-    ageCategory: "fiatal",
-    ageText: "11 hónapos",
-    virtualOwner: "",
-    gallery: [
-      "images/GAZDIT KERESNEK/K7 (1).jpg",
-      "images/GAZDIT KERESNEK/K7 (2).jpg",
-      "images/GAZDIT KERESNEK/K7 (3).jpg",
-      "images/GAZDIT KERESNEK/K7 (4).jpg",
-      "images/GAZDIT KERESNEK/K7 (5).jpg"
-    ],
-    tags: [],
-    description: `
-      <p>Eszter egy gyönyörű, 11 hónapos kislány – Feri testvére –, aki a szalmabála alól mentve érkezett hozzánk a többi tesójával együtt.</p>
-      <p>Ő egy kicsit érzékenyebb lelkű, óvatosabb kutyus: szüksége van egy kis finom hangolódásra és türelemre az ismerkedésnél, de amint érzi a biztonságot és elfogad, egy végtelenül kedves, ragaszkodó társ válik belőle.</p>
-      <p>Más kutyusokkal nagyszerűen megérti magát. Benti tartással keresi azt a megértő, melegszívű gazdit, aki biztosítja számára a nyugodt és szeretetteljes közeget!</p>
-    `,
-    featured: false
-  },
-  {
     id: "k8",
     name: "Nyurga",
     gender: "kan",
     size: "kozepes",
+    bornAt: "2021-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "5 éves",
     virtualOwner: "",
@@ -169,6 +158,8 @@ const DOGS_DATA = [
     name: "Zserbó",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2024-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "2 éves",
     virtualOwner: "",
@@ -190,6 +181,8 @@ const DOGS_DATA = [
     name: "Csicsi",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2020-11",
+    approxAge: true,
     ageCategory: "felnott",
     ageText: "~6 éves",
     virtualOwner: "",
@@ -212,6 +205,8 @@ const DOGS_DATA = [
     name: "Blanka",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2026-06",
+    approxAge: false,
     ageCategory: "kolyok",
     ageText: "5 hónapos",
     virtualOwner: "",
@@ -233,6 +228,8 @@ const DOGS_DATA = [
     name: "Petra",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2026-06",
+    approxAge: false,
     ageCategory: "kolyok",
     ageText: "5 hónapos",
     virtualOwner: "",
@@ -254,6 +251,8 @@ const DOGS_DATA = [
     name: "Petike",
     gender: "kan",
     size: "kozepes",
+    bornAt: "2026-06",
+    approxAge: false,
     ageCategory: "kolyok",
     ageText: "5 hónapos",
     virtualOwner: "",
@@ -275,6 +274,8 @@ const DOGS_DATA = [
     name: "Pitypang",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2022-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "4 év",
     virtualOwner: "Rádi Angéla",
@@ -307,6 +308,8 @@ const DOGS_DATA = [
     name: "Fenyő",
     gender: "kan",
     size: "nagy",
+    bornAt: "2024-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "2 év",
     virtualOwner: "",
@@ -331,60 +334,13 @@ const DOGS_DATA = [
     featured: false
   },
   {
-    id: "k16",
-    name: "Hunor",
-    gender: "kan",
-    size: "kozepes",
-    ageCategory: "kolyok",
-    ageText: "4 hónapos",
-    virtualOwner: "",
-    gallery: [
-      "images/GAZDIT KERESNEK/K16 (1).jpg",
-      "images/GAZDIT KERESNEK/K16 (2).jpg",
-      "images/GAZDIT KERESNEK/K16 (3).jpg",
-      "images/GAZDIT KERESNEK/K16 (4).jpg",
-      "images/GAZDIT KERESNEK/K16 (5).jpg",
-      "images/GAZDIT KERESNEK/K16 (6).jpg",
-      "images/GAZDIT KERESNEK/K16 (7).jpg"
-    ],
-    tags: [],
-    description: `
-      <p>Hunor a testvérével, Hannával együtt érkezett hozzánk egy kobzásból, mivel korábbi gazdájuk nem volt alkalmas a kutyatartásra. Ez a hófehér bundájú, figyelmes tekintetű kisfiú szerencsére hamar maga mögött hagyta a rossz emlékeket, és most minden percet játékkal és felfedezéssel tölt. Labrador anyukája és keverék apukája révén várhatóan közepes testű kutyus lesz belőle.</p>
-      <p>Hunor egy igazi kis energiabomba: nagyon játékos, édes és közvetlen kölyök, aki alig várja, hogy valakinek a hűséges társa lehessen.</p>
-      <p>Olyan aktív, gondoskodó családot keresünk számára, ahol sok szeretetet, közös játékot és persze a kölyökkorhoz szükséges nevelést is megkapja!</p>
-    `,
-    featured: false
-  },
-  {
-    id: "k17",
-    name: "Hanna",
-    gender: "szuka",
-    size: "kozepes",
-    ageCategory: "kolyok",
-    ageText: "4 hónapos",
-    virtualOwner: "",
-    gallery: [
-      "images/GAZDIT KERESNEK/K17 (1).jpg",
-      "images/GAZDIT KERESNEK/K17 (2).jpg",
-      "images/GAZDIT KERESNEK/K17 (3).jpg",
-      "images/GAZDIT KERESNEK/K17 (4).jpg",
-      "images/GAZDIT KERESNEK/K17 (5).jpg",
-      "images/GAZDIT KERESNEK/K17 (6).jpg"
-    ],
-    tags: [],
-    description: `
-      <p>Hanna testvérével, Hunorral együtt egy kobzás során került a menhelyre, miután előző gazdájuk alkalmatlannak bizonyult az állattartásra. A múlt nehézségei azonban egyáltalán nem látszanak meg rajta: ez a bájos, meleg barna bundájú, sötét pofijú kislány maga a megtestesült életöröm! Anyukája labrador, apukája keverék, így várhatóan közepes testű, okos és ragaszkodó felnőtt válik belőle.</p>
-      <p>Igazi kölyök módjára rengeteg energiája van, nagyon játékos, kíváncsi és végtelenül aranyos.</p>
-      <p>Olyan szerető, türelmes gazdit keres, aki szívesen tanítgatja, lemozgatja, és megmutatja neki, milyen egy igazi, biztonságos családi otthon!</p>
-    `,
-    featured: false
-  },
-  {
     id: "k18",
     name: "Tamara",
     gender: "szuka",
     size: "nagy",
-    ageCategory: "felnott",
+    bornAt: "2015-11",
+    approxAge: false,
+    ageCategory: "idos",
     ageText: "11 éves",
     virtualOwner: "",
     gallery: [
@@ -410,6 +366,8 @@ const DOGS_DATA = [
     name: "Kolonc",
     gender: "kan",
     size: "kozepes",
+    bornAt: "2020-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "6 éves",
     virtualOwner: "",
@@ -436,6 +394,8 @@ const DOGS_DATA = [
     name: "Fanni",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2021-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "5 éves",
     virtualOwner: "Almási Zita és Anna",
@@ -461,6 +421,8 @@ const DOGS_DATA = [
     name: "Alfa",
     gender: "szuka",
     size: "nagy",
+    bornAt: "2020-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "6 éves",
     virtualOwner: "",
@@ -485,6 +447,8 @@ const DOGS_DATA = [
     name: "Omega",
     gender: "szuka",
     size: "nagy",
+    bornAt: "2020-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "6 éves",
     virtualOwner: "Mészáros Ágnes",
@@ -511,6 +475,8 @@ const DOGS_DATA = [
     name: "Jessey",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2021-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "5 éves",
     virtualOwner: "",
@@ -536,6 +502,8 @@ const DOGS_DATA = [
     name: "Zsófia",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2021-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "5 éves",
     virtualOwner: "Rádi Evelin",
@@ -564,7 +532,9 @@ const DOGS_DATA = [
     name: "Milor",
     gender: "kan",
     size: "kozepes",
-    ageCategory: "felnott",
+    bornAt: "2014-11",
+    approxAge: false,
+    ageCategory: "idos",
     ageText: "12 év",
     virtualOwner: "",
     gallery: [
@@ -588,6 +558,8 @@ const DOGS_DATA = [
     name: "Gyémánt",
     gender: "szuka",
     size: "kozepes",
+    bornAt: "2024-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "2 év",
     virtualOwner: "",
@@ -616,6 +588,8 @@ const DOGS_DATA = [
     name: "King",
     gender: "kan",
     size: "nagy",
+    bornAt: "2023-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "3 éves",
     virtualOwner: "",
@@ -645,6 +619,8 @@ const DOGS_DATA = [
     name: "Lucky",
     gender: "kan",
     size: "nagy",
+    bornAt: "2019-11",
+    approxAge: false,
     ageCategory: "felnott",
     ageText: "7 éves",
     virtualOwner: "",
@@ -666,7 +642,7 @@ const DOGS_DATA = [
     tags: [],
     description: `
       <p>Lucky egy gyönyörű, németjuhász fiú, aki élete első 7 évét egy telephelyen töltötte őrkutyaként, kis helyre bezárva. Bár a múltja miatt most időre van szüksége a megnyugváshoz, a szíve mélyén egy hihetetlenül barátságos társ.</p>
-      <p>Az esze a fajtájához méltóan rendkívüli, és a főbb vezényszavakat is ismeri, ám az együttműködést és azt, hogy igazán figyeljen az emberekre, még tanulnia kell – éppen ezért jár jelenleg fejlesztő terápiára. Emberekkel ettől függetlenül kifejezetten közvetlen, imádja a társaságukat.</p>
+      <p>Az esze a fajtájához méltóan rendkívli, és a főbb vezényszavakat is ismeri, ám az együttműködést és azt, hogy igazán figyeljen az emberekre, még tanulnia kell – éppen ezért jár jelenleg fejlesztő terápiára. Emberekkel ettől függetlenül kifejezetten közvetlen, imádja a társaságukat.</p>
       <p><strong>Fontos információ:</strong> Lucky jelenleg még nem fogadható örökbe, de már lehet rá jelentkezni, valamint személyesen is meg lehet vele ismerkedni a menhelyen! Ha egy okos, hűséges és csodálatos németjuhász társra vágysz, akivel már most el lehet kezdeni az ismerkedést a közös jövő reményében, Lucky izgatottan várja a jelentkezésedet!</p>
     `,
     featured: false
@@ -682,6 +658,51 @@ function formatSize(size) {
   return size;
 }
 
+function getDogTotalMonths(dog) {
+  if (!dog || !dog.bornAt) return null;
+
+  const [yearStr, monthStr] = String(dog.bornAt).split("-");
+  const birthYear = Number(yearStr);
+  const birthMonth = Number(monthStr);
+
+  if (!birthYear || !birthMonth || birthMonth < 1 || birthMonth > 12) {
+    return null;
+  }
+
+  const now = new Date();
+  const months = (now.getFullYear() - birthYear) * 12 + (now.getMonth() + 1 - birthMonth);
+  return Math.max(0, months);
+}
+
+function getDogAgeText(dog) {
+  const totalMonths = getDogTotalMonths(dog);
+  if (totalMonths === null) {
+    return dog.ageText || "—";
+  }
+
+  const prefix = dog.approxAge ? "~" : "";
+
+  if (totalMonths < 12) {
+    const months = Math.max(1, totalMonths);
+    return `${prefix}${months} hónapos`;
+  }
+
+  const years = Math.floor(totalMonths / 12);
+  return `${prefix}${years} éves`;
+}
+
+function getDogAgeCategory(dog) {
+  const totalMonths = getDogTotalMonths(dog);
+  if (totalMonths === null) {
+    return dog.ageCategory || "felnott";
+  }
+
+  if (totalMonths <= 6) return "kolyok";   // 0–6 hónapos
+  if (totalMonths <= 18) return "fiatal";  // 7–18 hónapos
+  if (totalMonths < 96) return "felnott";  // 1,5–8 éves (19–95 hónap)
+  return "idos";                           // 8 éves kortól (96+ hónap)
+}
+
 // ==========================================
 // KÁRTYA SABLON
 // ==========================================
@@ -692,6 +713,7 @@ function createDogCardHTML(dog) {
   const currentIndex = cardImageIndexes[dog.id];
   const currentImage = dog.gallery[currentIndex];
   const totalImages = dog.gallery.length;
+  const ageLabel = getDogAgeText(dog);
 
   const hasVirtual = dog.virtualOwner && dog.virtualOwner.trim() !== "";
   const virtualSubtextHTML = hasVirtual 
@@ -723,7 +745,7 @@ function createDogCardHTML(dog) {
               ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}
             </span>
           </div>
-          <p class="text-xs text-stone-500 font-medium capitalize">${formatSize(dog.size)} • ${dog.ageText}</p>
+          <p class="text-xs text-stone-500 font-medium capitalize">${formatSize(dog.size)} • ${ageLabel}</p>
           ${virtualSubtextHTML}
         </div>
 
@@ -761,6 +783,8 @@ function openDogModal(dogId) {
 
   let modal = document.getElementById("dog-detail-modal");
   if (modal) modal.remove();
+
+  const ageLabel = getDogAgeText(dog);
 
   const galleryHTML = dog.gallery.map(img => `
     <img src="${img}" alt="${dog.name}" class="w-full h-16 sm:h-20 object-cover rounded-xl border border-[#eedfcc] cursor-pointer hover:opacity-90 hover:border-[#c85a32] transition-all" onclick="document.getElementById('modal-main-img').src='${img}'" />
@@ -820,7 +844,7 @@ function openDogModal(dogId) {
           <div class="grid grid-cols-2 gap-2 text-stone-700">
             <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
               <span class="text-[10px] text-stone-400 block uppercase font-bold">Életkor</span>
-              <strong class="text-xs font-semibold">${dog.ageText}</strong>
+              <strong class="text-xs font-semibold">${ageLabel}</strong>
             </div>
             <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
               <span class="text-[10px] text-stone-400 block uppercase font-bold">Méret</span>

@@ -31,6 +31,8 @@
         <span class="text-white/60">/</span>
         <a href="gazdit-keresnek.html" class="text-white text-sm font-medium hover:underline active">Gazdit keresnek</a>
         <span class="text-white/60">/</span>
+        <a href="gazdit-talaltak.html" class="text-white text-sm font-medium hover:underline">Gazdira találtak</a>
+        <span class="text-white/60">/</span>
         <a href="hogyan-segithetsz.html" class="text-white text-sm font-medium hover:underline">Hogyan segíthetsz?</a>
         <span class="text-white/60">/</span>
         <a href="kapcsolat.html" class="text-white text-sm font-medium hover:underline">Kapcsolat és Örökbefogadás</a>
@@ -52,6 +54,7 @@
     <div id="mobile-menu" class="absolute top-full left-0 w-full bg-[#4a4543] border-t border-stone-600 shadow-xl hidden flex-col px-6 py-5 space-y-4 lg:hidden">
       <a href="index.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Kezdőlap</a>
       <a href="gazdit-keresnek.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Gazdit keresnek</a>
+      <a href="gazdit-talaltak.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Gazdira találtak</a>
       <a href="hogyan-segithetsz.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Hogyan segíthetsz?</a>
       <a href="kapcsolat.html" class="text-white text-base font-medium py-1 border-b border-stone-600/55">Kapcsolat és Örökbefogadás</a>
       <div class="flex items-center space-x-4 pt-2">
@@ -112,9 +115,10 @@
           <div>
             <select id="gallery-age" class="w-full px-2.5 py-2 bg-[#faf7f2] border border-[#eedfcc] rounded-xl text-xs focus:bg-white focus:outline-none text-stone-700 font-medium">
               <option value="all">Minden életkor</option>
-              <option value="kolyok">Kölyök</option>
-              <option value="fiatal">Fiatal</option>
-              <option value="felnott">Felnőtt</option>
+              <option value="kolyok">Kölyök (0–6 hónapos)</option>
+              <option value="fiatal">Fiatal (7–18 hónapos)</option>
+              <option value="felnott">Felnőtt (1,5–8 éves)</option>
+              <option value="idos">Idős (8 éves kortól)</option>
             </select>
           </div>
 
@@ -211,6 +215,14 @@
       }
     }
 
+    function resolveDogAgeText(dog) {
+      return typeof getDogAgeText === "function" ? getDogAgeText(dog) : dog.ageText;
+    }
+
+    function resolveDogAgeCategory(dog) {
+      return typeof getDogAgeCategory === "function" ? getDogAgeCategory(dog) : dog.ageCategory;
+    }
+
     let galleryFilters = {
       search: "",
       size: "all",
@@ -231,7 +243,7 @@
           if (!matchName && !matchTags) return false;
         }
         if (galleryFilters.size !== "all" && dog.size !== galleryFilters.size) return false;
-        if (galleryFilters.age !== "all" && dog.ageCategory !== galleryFilters.age) return false;
+        if (galleryFilters.age !== "all" && resolveDogAgeCategory(dog) !== galleryFilters.age) return false;
         if (galleryFilters.gender !== "all" && dog.gender !== galleryFilters.gender) return false;
         return true;
       });
@@ -276,6 +288,7 @@
       const currentIndex = cardImageIndexes[dog.id];
       const currentImage = dog.gallery[currentIndex];
       const totalImages = dog.gallery.length;
+      const ageLabel = resolveDogAgeText(dog);
 
       const hasVirtual = dog.virtualOwner && dog.virtualOwner.trim() !== "";
       const virtualSubtextHTML = hasVirtual 
@@ -307,7 +320,7 @@
                   ${dog.gender === 'kan' ? 'Kan' : 'Szuka'}
                 </span>
                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#c85a32] bg-[#fbeee8] px-1.5 sm:px-2 py-0.5 rounded uppercase">
-                  ${dog.ageText}
+                  ${ageLabel}
                 </span>
               </div>
               ${virtualSubtextHTML}
@@ -327,6 +340,8 @@
 
       let modal = document.getElementById("dog-detail-modal");
       if (modal) modal.remove();
+
+      const ageLabel = resolveDogAgeText(dog);
 
       const galleryHTML = dog.gallery.map(img => `
         <img src="${img}" alt="${dog.name}" class="w-full h-14 sm:h-20 object-cover rounded-xl border border-[#eedfcc] cursor-pointer hover:opacity-90 hover:border-[#c85a32] transition-all" onclick="document.getElementById('modal-main-img').src='${img}'" />
@@ -378,7 +393,7 @@
                 </div>
                 <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
                   <span class="text-[10px] text-stone-400 block uppercase font-bold">Életkor</span>
-                  <strong class="text-xs font-semibold">${dog.ageText}</strong>
+                  <strong class="text-xs font-semibold">${ageLabel}</strong>
                 </div>
                 <div class="bg-[#faf7f2] p-2.5 rounded-xl border border-[#eedfcc]">
                   <span class="text-[10px] text-stone-400 block uppercase font-bold">Méret</span>
