@@ -185,7 +185,7 @@ const DOGS_DATA = [
     approxAge: true,
     ageCategory: "felnott",
     ageText: "~6 éves",
-    virtualOwner: "",
+    virtualOwner: "Urbánszki Barbara",
     gallery: [
       "images/GAZDIT KERESNEK/K10 (1).jpg",
       "images/GAZDIT KERESNEK/K10 (2).jpg",
@@ -536,7 +536,7 @@ const DOGS_DATA = [
     approxAge: false,
     ageCategory: "idos",
     ageText: "12 év",
-    virtualOwner: "",
+    virtualOwner: "Rádi Ferenc",
     gallery: [
       "images/GAZDIT KERESNEK/K26 (1).jpg",
       "images/GAZDIT KERESNEK/K26 (2).jpg",
