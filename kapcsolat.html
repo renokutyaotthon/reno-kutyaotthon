@@ -102,6 +102,8 @@
 
           <!-- Formspree kapcsolat beállítva -->
           <form id="contact-page-form" action="https://formspree.io/f/xqpqljyd" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4 pt-2">
+            <input type="hidden" name="_subject" id="formspree-subject" value="Új üzenet a Rénó Kutyaotthon honlapjáról" />
+            <input type="hidden" name="_replyto" id="formspree-replyto" value="" />
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -394,6 +396,21 @@
       const btn = form.querySelector('button[type="submit"]');
       const originalBtnText = btn ? btn.textContent : "Üzenet elküldése";
 
+      const senderName = form.querySelector('[name="name"]')?.value.trim() || "Ismeretlen érdeklődő";
+      const senderEmail = form.querySelector('[name="email"]')?.value.trim() || "";
+      const topicSelect = form.querySelector('[name="topic"]');
+      const topicLabel = topicSelect ? topicSelect.options[topicSelect.selectedIndex].text : "";
+      const dogName = form.querySelector('[name="dog_name"]')?.value.trim();
+
+      const customSubject = dogName
+        ? `${topicLabel}: ${senderName} (${dogName})`
+        : `${topicLabel}: ${senderName}`;
+
+      const subjectInput = document.getElementById("formspree-subject");
+      const replyToInput = document.getElementById("formspree-replyto");
+      if (subjectInput) subjectInput.value = customSubject;
+      if (replyToInput) replyToInput.value = senderEmail;
+
       if (btn) {
         btn.disabled = true;
         btn.textContent = "Küldés folyamatban...";
@@ -438,3 +455,4 @@
   </script>
 </body>
 </html>
+```[cite: 8]
