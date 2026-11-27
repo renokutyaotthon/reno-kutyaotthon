@@ -363,11 +363,77 @@
       }
     });
 
-    function handleContactSubmit(e) {
+    function showContactFeedback(type, message) {
       const form = document.getElementById("contact-page-form");
+      if (!form) return;
+
+      let statusBox = document.getElementById("contact-form-status");
+      if (!statusBox) {
+        statusBox = document.createElement("div");
+        statusBox.id = "contact-form-status";
+        statusBox.className = "mt-4 p-4 rounded-2xl text-sm font-medium border";
+        form.insertAdjacentElement("afterend", statusBox);
+      }
+
+      if (type === "success") {
+        statusBox.className = "mt-4 p-4 rounded-2xl text-sm font-medium bg-emerald-50 text-emerald-900 border border-emerald-200";
+      } else {
+        statusBox.className = "mt-4 p-4 rounded-2xl text-sm font-medium bg-red-50 text-red-900 border border-red-200";
+      }
+
+      statusBox.textContent = message;
+      statusBox.classList.remove("hidden");
+    }
+
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+
+      const form = document.getElementById("contact-page-form");
+      if (!form) return;
+
       const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = "Küldés folyamatban...";
+      const originalBtnText = btn ? btn.textContent : "Üzenet elküldése";
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Küldés folyamatban...";
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method || "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          const dogBadge = document.getElementById("contact-dog-badge");
+          if (dogBadge) dogBadge.classList.add("hidden");
+          showContactFeedback(
+            "success",
+            "Köszönjük! Az üzeneted sikeresen eljutott hozzánk, hamarosan jelentkezünk."
+          );
+        } else {
+          showContactFeedback(
+            "error",
+            "A küldés során hiba történt. Kérjük, próbáld meg újra később, vagy írj közvetlenül e-mailben."
+          );
+        }
+      } catch (err) {
+        showContactFeedback(
+          "error",
+          "Hálózati hiba lépett fel. Kérjük, ellenőrizd az internetkapcsolatot, és próbáld meg újra."
+        );
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = originalBtnText;
+        }
+      }
     }
   </script>
 </body>
