@@ -312,7 +312,7 @@ const DOGS_DATA = [
     approxAge: false,
     ageCategory: "felnott",
     ageText: "2 év",
-    virtualOwner: "",
+    virtualOwner: "Takács Gábor",
     gallery: [
       "images/GAZDIT KERESNEK/K15 (1).jpg",
       "images/GAZDIT KERESNEK/K15 (2).jpg",
