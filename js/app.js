@@ -112,7 +112,7 @@ const DOGS_DATA = [
     approxAge: false,
     ageCategory: "kolyok",
     ageText: "5 hónapos",
-    virtualOwner: "",
+    virtualOwner: "Tamás Alex és Áron",
     gallery: [
       "images/GAZDIT KERESNEK/K6 (1).jpg",
       "images/GAZDIT KERESNEK/K6 (2).jpg",
